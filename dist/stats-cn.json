@@ -1,29 +1,25 @@
 {
- "updated": "2026-10-27 13:22:26 +0000",
+ "updated": "2026-10-27 13:31:07 +0000",
  "view": "CN-TCP (腾讯云广州 TCP 预筛) + 客户端 url-test 兜底",
  "counts": {
   "candidates": 100,
-  "tcp_ok": 9,
-  "alive": 9,
-  "kept": 9
+  "tcp_ok": 5,
+  "alive": 5,
+  "kept": 5
  },
  "remote": {
   "candidates": 100,
-  "tcp_ok": 9,
-  "alive": 9,
-  "elapsed": 13.4,
+  "tcp_ok": 5,
+  "alive": 5,
+  "elapsed": 14.2,
   "view": "CN-TCP",
   "host": "VM-0-5-ubuntu"
  },
  "delay": {
-  "C0016": 0,
-  "C0077": 0,
-  "C0080": 0,
-  "C0082": 0,
-  "C0084": 0,
-  "C0085": 0,
-  "C0086": 0,
+  "C0017": 0,
+  "C0031": 0,
+  "C0055": 0,
   "C0095": 0,
-  "C0098": 0
+  "C0096": 0
  }
 }
