@@ -478,7 +478,8 @@ def build_config(public, stats):
 
     for p in public:
         d = stats["delay"].get(p["_name"])
-        nm = f"PUB-{len(pub_names)+1:03d} {d}ms"
+        # delay 为 0/None 表示这一轮没做代理层测速（TCP_ONLY 模式），名字不带 ms
+        nm = (f"PUB-{len(pub_names)+1:03d} {d}ms" if d else f"PUB-{len(pub_names)+1:03d}")
         q = {k: v for k, v in p.items() if k not in ("_src", "_name", "name")}
         q["name"] = nm
         proxies.append(q)
