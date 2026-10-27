@@ -47,6 +47,14 @@ JUNK_WORDS = ("官网", "更新", "到期", "剩余", "流量", "请点击", "�
               "expire", "traffic", "website", "http")
 JUNK_SERVERS = ("", "127.0.0.1", "localhost", "0.0.0.0", "110.110.110.110")
 
+# 协议鲁棒性分级（0=优先）。
+# 2026-10-27 本机实测（同一批 32 个机场节点）：tuic 4/15=27%，vless 12/17=71%。
+# 原因：tuic/hysteria2 走 QUIC/UDP，家宽与部分运营商对 UDP 有 QoS 甚至直接丢；
+# 云服务器 UDP 干净，所以在云上测起来 tuic 反而正常——这就是"云上测通、家里不通"的根因。
+# 所以 fallback 顺序必须"TCP 类优先"，同级别内再按中国实测延迟排。
+PROTO_RANK = {"vless": 0, "trojan": 0, "vmess": 0, "ss": 0,
+              "hysteria2": 1, "tuic": 1}
+
 
 def load_airports():
     """返回 [(标签, url, ua)]。环境变量优先，其次本地文件。"""
@@ -177,11 +185,95 @@ def load_cn_public():
     return []
 
 
+def ssh_conf():
+    return (os.environ.get("SSH_KEY_PATH", "").strip(),
+            os.environ.get("SSH_HOST", "").strip(),
+            os.environ.get("SSH_USER", "root").strip(),
+            os.environ.get("SSH_PORT", "22").strip(),
+            os.environ.get("REMOTE_DIR", "/opt/subhub").strip())
+
+
+def ssh_base(key, user, host, port):
+    return ["ssh", "-i", key, "-p", port, "-o", "StrictHostKeyChecking=no",
+            "-o", "UserKnownHostsFile=/dev/null", "-o", "LogLevel=ERROR",
+            "-o", "ConnectTimeout=20", "-o", "BatchMode=yes", f"{user}@{host}"]
+
+
+def cn_measure(air):
+    """把机场节点交给腾讯云做**中国视角代理层**实测，返回 {下标: 延迟ms}。
+
+    2026-10-27 实测：付费机场节点在云上能正常代理（33/53 通，336~553ms），
+    和免费公共节点完全不同（那些是 0/7，应用层被封云 IP）。
+    所以机场节点可以做中国视角的真测速，不需要靠客户端赌。
+    """
+    key, host, user, port, rdir = ssh_conf()
+    if not (key and host):
+        U.log("  跳过中国视角测速（缺 SSH_KEY_PATH / SSH_HOST）")
+        return {}
+    blank = [{k: v for k, v in p.items() if k not in ("name", "_src", "_name")} for p in air]
+    payload = json.dumps({"proxies": blank}, ensure_ascii=False).encode()
+    r = subprocess.run(["scp", "-i", key, "-P", port,
+                        "-o", "StrictHostKeyChecking=no",
+                        "-o", "UserKnownHostsFile=/dev/null",
+                        "-o", "LogLevel=ERROR",
+                        os.path.join(HERE, "remote_refine.py"),
+                        f"{user}@{host}:{rdir}/"], capture_output=True, timeout=120)
+    if r.returncode != 0:
+        U.log(f"  !! 上传 remote_refine.py 失败: {r.stderr.decode(errors='replace')[:200]}")
+        return {}
+    r = subprocess.run(ssh_base(key, user, host, port) +
+                       [f"cd {rdir} && python3 remote_refine.py"],
+                       input=payload, capture_output=True, timeout=900)
+    for line in r.stderr.decode(errors="replace").strip().splitlines()[-3:]:
+        U.log("  " + line.strip())
+    if r.returncode != 0:
+        U.log(f"  !! 远程测速失败: {r.stderr.decode(errors='replace')[:300]}")
+        return {}
+    try:
+        res = json.loads(r.stdout.decode())
+    except Exception as e:
+        U.log(f"  !! 远程输出非 JSON: {e}")
+        return {}
+    out = {int(x["idx"]): int(x["delay"]) for x in (res.get("alive") or [])}
+    st = res.get("stats") or {}
+    U.log(f"  中国视角代理层可用: {len(out)}/{len(air)}  "
+          f"(tcp_ok={st.get('tcp_ok')} 耗时 {st.get('elapsed')}s)")
+    return out
+
+
+def apply_cn(air, delays):
+    """按中国实测延迟排序；大部分都测不通时保守处理（全留、只排序不剔除）。"""
+    if not delays:
+        return air
+    for i, p in enumerate(air):
+        p["_d"] = delays.get(i)
+    alive = [p for p in air if p.get("_d")]
+    dead = [p for p in air if not p.get("_d")]
+    ratio = len(alive) / max(1, len(air))
+    if ratio >= 0.3 and len(alive) >= 3:
+        seen, keep = set(), []
+        # 先按协议分级（TCP 优先），同级别再按中国实测延迟
+        for p in sorted(alive, key=lambda x: (PROTO_RANK.get(x["type"], 0), x["_d"])):
+            nm = f"{p['name']} {p['_d']}ms"
+            while nm in seen:
+                nm += "'"
+            seen.add(nm)
+            p["name"] = nm
+            keep.append(p)
+        tcp = sum(1 for p in keep if PROTO_RANK.get(p["type"], 0) == 0)
+        U.log(f"  按中国延迟排序：保留 {len(keep)} 个"
+              f"（TCP 类 {tcp} + UDP 类 {len(keep)-tcp}，剔除 {len(dead)} 个测不通的）")
+        return keep
+    U.log(f"  可用率偏低({ratio:.0%})，保守处理：全部保留、只排序不剔除")
+    ranked = sorted(air, key=lambda x: (PROTO_RANK.get(x.get("type"), 0),
+                                        x.get("_d") is None, x.get("_d") or 99999))
+    for p in ranked:
+        p.pop("_d", None)
+    return ranked
+
+
 def push(path):
-    key = os.environ.get("SSH_KEY_PATH", "").strip()
-    host = os.environ.get("SSH_HOST", "").strip()
-    user = os.environ.get("SSH_USER", "root").strip()
-    rdir = os.environ.get("REMOTE_DIR", "/opt/subhub").strip()
+    key, host, user, _port, rdir = ssh_conf()
     if not (key and host):
         U.log("!! 缺 SSH_KEY_PATH / SSH_HOST，跳过上传")
         return False
@@ -203,6 +295,9 @@ def main():
     if not air:
         U.log("!! 没有任何机场节点（AIRPORT_SUBS 为空或全部抓取失败）")
         # 不直接退出：退化成"自建+公共"的合并版，仍然可用
+    elif "--no-cn" not in sys.argv:
+        U.log("机场节点交腾讯云做中国视角代理层测速…")
+        air = apply_cn(air, cn_measure(air))
     pub = load_cn_public()
     if not air and not pub:
         print("SKIP")

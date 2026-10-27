@@ -504,21 +504,34 @@ def build_config(public, stats, airports=None, airport_label="✈️ 机场"):
     # "节点挂了" 变成 "静默直连、看起来正常但实际被墙"，排查时极具误导性
     # （2026-10-27 实测踩过：fallback 尾端挂 DIRECT，出口显示本地 IP，误判成节点可用）。
     groups = []
-    if air_names:
-        groups.append({"name": airport_label, "type": "url-test",
+    if bin_names:
+        groups.append({"name": "🏠 自建", "type": "url-test",
                        "url": TEST_URL, "interval": 300, "tolerance": 50,
-                       "lazy": True, "proxies": air_names})
+                       "lazy": True, "proxies": bin_names})
+    if air_names:
+        # 机场组用 fallback 不用 url-test：付费节点也会挂，fallback 在当前节点失败时
+        # 立刻换下一个，比 url-test 等下一轮测速（90s 黑洞）可靠。
+        # 顺序由调用方按"中国视角实测延迟"排好，所以 fallback 的第一个就是最快的。
+        groups.append({"name": airport_label, "type": "fallback",
+                       "url": TEST_URL, "interval": 180, "lazy": True,
+                       "proxies": air_names})
     if pub_names:
         groups.append({"name": "♻️ 公共自动", "type": "url-test",
                        "url": TEST_URL, "interval": 600, "tolerance": 80,
                        "lazy": True, "proxies": pub_names})
-    head = ([airport_label] if air_names else []) + \
+    pick = ([airport_label] if air_names else []) + \
+           (["🏠 自建"] if bin_names else []) + \
            (["♻️ 公共自动"] if pub_names else [])
     groups.append({"name": "🎯 手动选择", "type": "select",
-                   "proxies": head + allp + ["DIRECT"]})
+                   "proxies": pick + allp + ["DIRECT"]})
+    # 顺序即优先级：机场（付费，最稳）> 自建 > 公共免费。
+    # 千万别把聚合组塞到自建前面去占位——fallback 是按列表顺序试的，
+    # 放错位置会让"公共自动"抢在自建前面被选中。
     groups.append({"name": "🚀 境外代理", "type": "fallback",
                    "url": TEST_URL, "interval": 300,
-                   "proxies": head + bin_names + pub_names})
+                   "proxies": ([airport_label] if air_names else []) +
+                              bin_names + pub_names +
+                              (["♻️ 公共自动"] if pub_names else [])})
 
     cfg = {
         "mixed-port": 7890,
