@@ -1,6 +1,6 @@
 # 由 ci_refine.py 生成（中国视角 TCP 预筛），请勿手改
-# 更新时间: 2026-10-27 13:08:53 +0000
-# 候选池 100 -> 中国 TCP 可连 12 -> 写入 12
+# 更新时间: 2026-10-27 13:22:26 +0000
+# 候选池 100 -> 中国 TCP 可连 9 -> 写入 9
 # 说明：延迟未标注，因代理层测速由客户端 url-test 完成
 #       （云服务器 IP 被免费节点封禁，云上测代理层恒为 0）
 mixed-port: 7890
@@ -108,20 +108,36 @@ proxies:
   type: trojan
   udp: true
   name: PUB-001
-- type: vmess
-  network: ws
-  server: 172.66.0.1
-  port: 443
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  skip-cert-verify: true
-  tls: true
-  alterId: 0
-  cipher: auto
-  ws-opts:
-    headers:
-      Host: vmess.lbw666.dpdns.org
-    path: /ws
+- server: 202.50.253.99
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   name: PUB-002
+- server: 202.50.253.27
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-003
+- server: 202.50.253.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-004
+- server: 202.50.253.45
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-005
+- server: 202.50.253.63
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-006
 - type: vmess
   network: ws
   server: cf.090227.xyz
@@ -135,85 +151,27 @@ proxies:
     headers:
       Host: vmess.lbw666.dpdns.org
     path: /ws?ed=2048
-  name: PUB-003
-- server: 202.50.253.99
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-004
-- server: 202.50.253.90
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-005
-- server: 202.50.253.72
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-006
-- server: 202.50.253.54
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   name: PUB-007
-- cipher: chacha20-ietf-poly1305
-  password: uvKNudV-N8AUCrykPiyznA
-  port: 56137
-  server: 177.202.111.19
-  type: ss
-  udp: true
-  name: PUB-008
-- type: vless
-  server: ge-s-1.pythonmakemigreat.wiki
-  port: 443
-  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
-  flow: xtls-rprx-vision
-  udp: true
-  tls: true
-  servername: ge-s-1.pythonmakemigreat.wiki
-  sni: ge-s-1.pythonmakemigreat.wiki
-  skip-cert-verify: false
-  client-fingerprint: safari
-  reality-opts:
-    public-key: 5fkwwCKZzMsE6Eb_b3iqluu-1AWIfnYl-p0N3EL9Al8
-    short-id: 2c9a2790ad5900b2
-  name: PUB-009
-- type: trojan
+- type: vmess
   network: ws
-  server: 104.19.229.21
+  server: 172.66.0.1
   port: 443
-  password: humanity
-  skip-cert-verify: false
-  sni: www.calmlunch.com
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  skip-cert-verify: true
+  tls: true
+  alterId: 0
+  cipher: auto
   ws-opts:
     headers:
-      Host: www.calmlunch.com
-    path: /assignment
-  name: PUB-010
-- server: 202.50.253.45
+      Host: vmess.lbw666.dpdns.org
+    path: /ws
+  name: PUB-008
+- server: 202.50.253.81
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-011
-- type: trojan
-  server: 165.215.250.14
-  port: 443
-  password: humanity
-  udp: true
-  tls: true
-  servername: www.calmlunch.com
-  sni: www.calmlunch.com
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /assignment
-  name: PUB-012
+  name: PUB-009
 proxy-groups:
 - name: ♻️ 公共自动
   type: url-test
@@ -231,9 +189,6 @@ proxy-groups:
   - PUB-007
   - PUB-008
   - PUB-009
-  - PUB-010
-  - PUB-011
-  - PUB-012
 - name: 🎯 手动选择
   type: select
   proxies:
@@ -251,15 +206,13 @@ proxy-groups:
   - PUB-007
   - PUB-008
   - PUB-009
-  - PUB-010
-  - PUB-011
-  - PUB-012
   - DIRECT
 - name: 🚀 境外代理
   type: fallback
   url: http://cp.cloudflare.com/generate_204
   interval: 300
   proxies:
+  - ♻️ 公共自动
   - 🏠 自建 fast3
   - 🏠 自建 fast5
   - 🏠 自建 fast2
@@ -273,10 +226,6 @@ proxy-groups:
   - PUB-007
   - PUB-008
   - PUB-009
-  - PUB-010
-  - PUB-011
-  - PUB-012
-  - ♻️ 公共自动
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve

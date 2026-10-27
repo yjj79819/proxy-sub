@@ -1,6 +1,6 @@
 # 由 subhub 自动生成，请勿手改（会被覆盖）
-# 更新时间: 2026-10-27 13:08:21 +0000
-# 公共节点: 100 个（源 6，去重 2885，TCP 通 1602，实测可用 231）
+# 更新时间: 2026-10-27 13:22:01 +0000
+# 公共节点: 100 个（源 6，去重 2885，TCP 通 1607，实测可用 243）
 mixed-port: 7890
 allow-lan: false
 mode: rule
@@ -98,160 +98,105 @@ proxies:
     path: /?ed=2560
     headers:
       Host: cf.legaga.top
-- server: 45.86.51.18
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-001 10ms
-- server: 185.230.230.18
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-002 10ms
-- server: 37.19.198.244
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  name: PUB-003 23ms
-- server: 37.19.198.243
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  name: PUB-004 24ms
-- server: 37.19.198.160
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  name: PUB-005 25ms
-- server: 37.19.198.236
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  name: PUB-006 27ms
-- server: 193.151.163.18
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-007 46ms
-- server: 51.222.136.236
-  port: 8882
-  type: ss
-  cipher: aes-256-gcm
-  password: kDWvXYZoTBcGkC4
-  name: PUB-008 48ms
-- server: 15.204.247.206
-  port: 4444
-  type: ss
-  cipher: aes-256-gcm
-  password: pKEW8JPByTVTLtM
-  name: PUB-009 48ms
-- type: vmess
-  network: tcp
-  server: 23.162.200.198
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  tls: false
-  alterId: 0
-  cipher: auto
-  name: PUB-010 50ms
-- server: 193.151.160.18
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-011 60ms
-- type: vmess
-  network: tcp
-  server: 67.220.85.46
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  udp: true
-  alterId: 0
-  cipher: aes-128-gcm
-  name: PUB-012 61ms
-- server: 193.151.160.9
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-013 65ms
-- password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 216.152.155.176
-  skip-cert-verify: true
-  sni: blog.nextjobopportunityandclaimyouridealrole.com
-  type: trojan
-  udp: true
-  name: PUB-014 65ms
 - server: 156.146.38.167
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-  name: PUB-015 77ms
-- password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
-  port: 443
-  server: 216.152.155.23
-  skip-cert-verify: true
-  sni: courses.nextjobopportunityandclaimyouridealrole.com
-  type: trojan
-  udp: true
-  name: PUB-016 78ms
+  name: PUB-001 33ms
 - server: 156.146.38.169
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-  name: PUB-017 79ms
-- server: 156.146.38.170
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  name: PUB-018 79ms
-- type: vmess
-  network: tcp
-  server: 38.91.107.49
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  tls: false
-  alterId: 0
-  cipher: auto
-  name: PUB-019 80ms
+  name: PUB-002 33ms
 - server: 156.146.38.168
   port: 443
   type: ss
   cipher: aes-128-gcm
   password: shadowsocks
-  name: PUB-020 85ms
-- type: vmess
-  network: tcp
-  server: 38.110.1.246
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  udp: true
-  alterId: 0
-  cipher: auto
-  name: PUB-021 88ms
-- server: 137.184.174.93
-  port: 8080
+  name: PUB-003 36ms
+- server: 156.146.38.170
+  port: 443
   type: ss
-  cipher: rc4-md5
-  password: 14fFPrbezE3HDZzsMOr6
-  name: PUB-022 104ms
-- server: 51.79.49.116
-  port: 8882
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-004 39ms
+- server: 193.151.160.9
+  port: 19999
   type: ss
   cipher: aes-256-gcm
-  password: kDWvXYZoTBcGkC4
-  name: PUB-023 105ms
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-005 75ms
+- server: 185.230.230.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-006 76ms
+- server: 193.151.160.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-007 79ms
+- server: 45.86.51.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-008 83ms
+- server: 95.215.201.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-009 84ms
+- server: 37.19.198.236
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-010 85ms
+- server: 216.105.168.18
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: hCCWOcIsK5wrFz4OX70rWf
+  name: PUB-011 85ms
+- server: 37.19.198.160
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-012 86ms
+- server: 37.19.198.244
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-013 89ms
+- server: 37.19.198.243
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-014 92ms
+- type: vmess
+  network: tcp
+  server: 129.146.143.80
+  port: 48111
+  uuid: d4603cc2-e0ee-4651-83f5-1db5b7168177
+  tls: false
+  alterId: 0
+  cipher: auto
+  name: PUB-015 93ms
+- server: 173.244.56.6
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-016 94ms
 - password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
   port: 443
   server: 216.152.156.65
@@ -259,380 +204,7 @@ proxies:
   sni: learn.healthcarejobshubenhancemedicalprofessionalskillstoday.com
   type: trojan
   udp: true
-  name: PUB-024 108ms
-- server: 95.215.201.18
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-025 136ms
-- server: 149.22.95.183
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  name: PUB-026 141ms
-- server: 173.244.56.9
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  name: PUB-027 148ms
-- type: vmess
-  network: ws
-  server: 172.66.0.1
-  port: 443
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  skip-cert-verify: true
-  tls: true
-  alterId: 0
-  cipher: auto
-  ws-opts:
-    headers:
-      Host: vmess.lbw666.dpdns.org
-    path: /ws
-  name: PUB-028 149ms
-- server: 185.176.206.9
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-029 157ms
-- type: vmess
-  network: tcp
-  server: 84.17.41.2
-  port: 18000
-  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
-  udp: true
-  alterId: 0
-  cipher: auto
-  name: PUB-030 162ms
-- server: 94.156.250.148
-  port: 7001
-  type: ss
-  cipher: aes-256-gcm
-  password: RexnBgU7EV5ADxG
-  name: PUB-031 166ms
-- server: 173.244.56.6
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  name: PUB-032 167ms
-- cipher: aes-128-gcm
-  password: shadowsocks
-  port: 443
-  server: 158.173.24.73
-  type: ss
-  name: PUB-033 172ms
-- server: 185.176.204.18
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-034 185ms
-- type: vmess
-  network: ws
-  server: cf.090227.xyz
-  port: 443
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  skip-cert-verify: true
-  tls: true
-  alterId: 0
-  cipher: auto
-  ws-opts:
-    headers:
-      Host: vmess.lbw666.dpdns.org
-    path: /ws?ed=2048
-  name: PUB-035 188ms
-- server: 109.201.152.181
-  port: 443
-  type: ss
-  cipher: aes-128-cfb
-  password: shadowsocks
-  name: PUB-036 191ms
-- server: 57.131.48.45
-  port: 8388
-  type: ss
-  cipher: aes-256-gcm
-  password: itzvpn@321
-  name: PUB-037 193ms
-- server: 132.243.175.144
-  port: 8388
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
-  name: PUB-038 194ms
-- server: sql.popmintxo.cc
-  port: 43385
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: AwW1fV6oDDQKh8r2znmptv59tPgt4eHVTgFaTqgKS2jiSdikJ7GyGCBYehDaK38S8yMgHFdbJqcTmRJSfYS5CFw345bNhFZa
-  name: PUB-039 195ms
-- server: 82.38.31.62
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-040 196ms
-- server: 82.38.31.162
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-041 197ms
-- server: 82.38.31.61
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-042 197ms
-- server: 82.38.31.34
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-043 197ms
-- server: resources.findlocaljobnetworkandbuildcommunityconnections.com
-  port: 443
-  type: trojan
-  password: f0eb8c92ce8946aaba856569cff1a16b
-  sni: resources.findlocaljobnetworkandbuildcommunityconnections.com
-  skip-cert-verify: false
-  name: PUB-044 198ms
-- server: 193.29.139.151
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-045 199ms
-- server: 82.38.31.174
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-046 199ms
-- server: blog.findlocaljobnetworkandbuildcommunityconnections.com
-  port: 443
-  type: trojan
-  password: dba20dcb635e430fa4d3bfc303a149d2
-  sni: blog.findlocaljobnetworkandbuildcommunityconnections.com
-  skip-cert-verify: false
-  name: PUB-047 200ms
-- server: 82.38.31.203
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: PUB-048 201ms
-- server: 82.38.31.82
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-049 201ms
-- server: 82.38.31.199
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: PUB-050 201ms
-- type: vless
-  network: tcp
-  server: connect.hondamotor.site
-  port: 10002
-  uuid: c6362720-0931-4b91-b187-d8ecf3149734
-  tls: false
-  name: PUB-051 203ms
-- server: 82.38.31.47
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-052 203ms
-- server: 82.38.31.66
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-053 205ms
-- server: 193.29.139.204
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-054 205ms
-- server: 82.38.31.217
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: PUB-055 205ms
-- server: 82.38.31.184
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: PUB-056 206ms
-- server: 82.38.31.159
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-057 206ms
-- server: 82.38.31.193
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: PUB-058 206ms
-- server: 185.164.175.81
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-059 208ms
-- server: 178.83.185.156
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-060 208ms
-- server: 82.38.31.170
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-061 208ms
-- server: 82.38.31.171
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-062 209ms
-- server: 82.38.31.174
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-063 209ms
-- server: 82.38.31.210
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: PUB-064 211ms
-- server: 202.50.253.99
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-065 213ms
-- server: 202.50.253.90
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-066 214ms
-- server: 82.38.31.3
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-067 214ms
-- server: 82.38.31.35
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-068 214ms
-- server: 82.110.60.9
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-069 215ms
-- server: 82.38.31.216
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: PUB-070 216ms
-- server: 202.50.253.72
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-071 217ms
-- server: staging.lastilhame.monster
-  port: 49917
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: G9ZuLN5DE9qqouTZwYUcvYsDJx8gyL1nCu3N7yRZFjPmYKhzSi8GkpVuexmTHAz2uvcErKkex1K2ceR2GH3L444HRNnN1YpP
-  name: PUB-072 217ms
-- server: 82.38.31.42
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-073 218ms
-- server: 82.38.31.181
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: PUB-074 221ms
-- server: 82.38.31.155
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-075 221ms
-- server: 82.38.31.205
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: PUB-076 222ms
-- server: 82.38.31.2
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: oZIoA69Q8yhcQV8ka3Pa3A
-  name: PUB-077 223ms
-- server: 82.38.31.202
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: k1dBOmOB4oqi7Ump37a1bQ
-  name: PUB-078 223ms
-- server: 202.50.253.54
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-079 226ms
-- server: 198.98.53.130
-  port: 443
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: eDfN7SODQceIOmIAbtJJtK
-  name: PUB-080 227ms
-- type: vless
-  server: 51.81.203.63
-  port: 443
-  uuid: cb2dbb6a-a1ea-4023-9ace-6466cee57241
-  flow: xtls-rprx-vision
-  udp: true
-  tls: true
-  servername: www.icloud.com
-  sni: www.icloud.com
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: nqwCf6oW49tEtmQ0EzxigZ0uu1pg0E30CS54G40Iti0
-    short-id: 4477382ff6d3d41c
-  name: PUB-081 232ms
+  name: PUB-017 96ms
 - type: vmess
   network: tcp
   server: 67.220.95.3
@@ -641,32 +213,117 @@ proxies:
   tls: false
   alterId: 0
   cipher: aes-128-gcm
-  name: PUB-082 247ms
-- cipher: chacha20-ietf-poly1305
-  password: QFWzCw2uX9B9i6qAYeFBIE
-  port: 443
-  server: bogging-eyeteeth-fly.freesocks.work
-  type: ss
-  name: PUB-083 256ms
-- cipher: chacha20-ietf-poly1305
-  password: uvKNudV-N8AUCrykPiyznA
-  port: 56137
-  server: 177.202.111.19
-  type: ss
-  udp: true
-  name: PUB-084 256ms
+  name: PUB-018 100ms
 - type: vmess
   network: tcp
-  server: 45.90.106.24
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  servername: 45.90.106.24
+  server: 23.162.200.198
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  tls: false
+  alterId: 0
+  cipher: auto
+  name: PUB-019 102ms
+- type: vmess
+  network: tcp
+  server: 38.91.107.49
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  tls: false
+  alterId: 0
+  cipher: auto
+  name: PUB-020 104ms
+- server: 51.222.136.236
+  port: 8882
+  type: ss
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
+  name: PUB-021 107ms
+- server: 173.244.56.9
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-022 111ms
+- password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  port: 443
+  server: 216.152.155.176
   skip-cert-verify: true
-  tls: true
+  sni: blog.nextjobopportunityandclaimyouridealrole.com
+  type: trojan
+  udp: true
+  name: PUB-023 111ms
+- password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  port: 443
+  server: 216.152.155.23
+  skip-cert-verify: true
+  sni: courses.nextjobopportunityandclaimyouridealrole.com
+  type: trojan
+  udp: true
+  name: PUB-024 112ms
+- server: 193.151.163.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-025 116ms
+- server: 15.204.247.206
+  port: 4444
+  type: ss
+  cipher: aes-256-gcm
+  password: pKEW8JPByTVTLtM
+  name: PUB-026 121ms
+- type: vmess
+  network: tcp
+  server: 84.17.41.2
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
   udp: true
   alterId: 0
+  cipher: auto
+  name: PUB-027 126ms
+- server: 137.184.174.93
+  port: 8080
+  type: ss
+  cipher: rc4-md5
+  password: 14fFPrbezE3HDZzsMOr6
+  name: PUB-028 127ms
+- type: vmess
+  network: tcp
+  server: 169.197.142.22
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  skip-cert-verify: true
+  alterId: 0
+  cipher: auto
+  name: PUB-029 135ms
+- type: vmess
+  network: tcp
+  server: 38.110.1.246
+  port: 18000
+  uuid: f8c8dc3d-0d37-46b0-8b34-a7232882fcfe
+  udp: true
+  alterId: 0
+  cipher: auto
+  name: PUB-030 136ms
+- server: 51.222.200.165
+  port: 5000
+  type: ss
+  cipher: aes-256-gcm
+  password: Y6R9pAtvxxzmGC
+  name: PUB-031 136ms
+- server: 149.22.95.183
+  port: 443
+  type: ss
   cipher: aes-128-gcm
-  name: PUB-085 274ms
+  password: shadowsocks
+  name: PUB-032 137ms
+- server: blog.findlocaljobnetworkandbuildcommunityconnections.com
+  port: 443
+  type: trojan
+  password: dba20dcb635e430fa4d3bfc303a149d2
+  sni: blog.findlocaljobnetworkandbuildcommunityconnections.com
+  skip-cert-verify: false
+  name: PUB-033 169ms
 - type: vless
   network: ws
   server: 38.107.236.166
@@ -681,7 +338,426 @@ proxies:
     headers:
       Host: 3h-unitedstates3.09vpn.com
     path: /vless/
-  name: PUB-086 278ms
+  name: PUB-034 188ms
+- type: vless
+  server: 51.81.203.63
+  port: 443
+  uuid: cb2dbb6a-a1ea-4023-9ace-6466cee57241
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: www.icloud.com
+  sni: www.icloud.com
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: nqwCf6oW49tEtmQ0EzxigZ0uu1pg0E30CS54G40Iti0
+    short-id: 4477382ff6d3d41c
+  name: PUB-035 202ms
+- server: 185.176.206.9
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-036 232ms
+- cipher: aes-128-gcm
+  password: shadowsocks
+  port: 443
+  server: 158.173.24.73
+  type: ss
+  name: PUB-037 240ms
+- server: 109.201.152.181
+  port: 443
+  type: ss
+  cipher: aes-128-cfb
+  password: shadowsocks
+  name: PUB-038 243ms
+- server: 185.176.204.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-039 246ms
+- server: 132.243.175.144
+  port: 8388
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: e8KgS8fD0yDqYFpgN4G5piCOt9aFyqA3
+  name: PUB-040 255ms
+- server: 149.22.87.240
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-041 256ms
+- server: 82.38.31.3
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-042 257ms
+- type: vless
+  network: tcp
+  server: connect.hondamotor.site
+  port: 10002
+  uuid: c6362720-0931-4b91-b187-d8ecf3149734
+  tls: false
+  name: PUB-043 258ms
+- server: 57.131.48.45
+  port: 8388
+  type: ss
+  cipher: aes-256-gcm
+  password: itzvpn@321
+  name: PUB-044 258ms
+- server: 82.38.31.203
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-045 259ms
+- server: 149.22.87.241
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-046 260ms
+- server: 82.38.31.2
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-047 261ms
+- server: 82.38.31.47
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-048 262ms
+- server: 94.156.250.148
+  port: 7001
+  type: ss
+  cipher: aes-256-gcm
+  password: RexnBgU7EV5ADxG
+  name: PUB-049 262ms
+- server: 82.38.31.61
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-050 263ms
+- server: 82.38.31.171
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-051 264ms
+- server: 82.38.31.34
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-052 264ms
+- server: 82.38.31.199
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-053 264ms
+- server: 82.38.31.214
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-054 265ms
+- server: 82.38.31.212
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-055 267ms
+- server: 149.22.87.204
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-056 267ms
+- server: 82.38.31.66
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-057 267ms
+- server: 82.38.31.35
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-058 267ms
+- server: 82.38.31.174
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-059 267ms
+- server: 82.38.31.205
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-060 269ms
+- server: 193.29.139.151
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-061 269ms
+- server: 82.38.31.82
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-062 269ms
+- server: 82.38.31.159
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-063 269ms
+- server: 82.38.31.216
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-064 269ms
+- server: 178.83.185.156
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-065 270ms
+- server: 82.38.31.193
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-066 270ms
+- server: 82.38.31.162
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-067 271ms
+- server: 82.38.31.62
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-068 272ms
+- server: 82.38.31.217
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-069 272ms
+- server: 82.38.31.155
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-070 273ms
+- server: 141.98.101.181
+  port: 443
+  type: ss
+  cipher: aes-128-gcm
+  password: shadowsocks
+  name: PUB-071 274ms
+- server: 82.38.31.170
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-072 275ms
+- server: 82.38.31.202
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-073 275ms
+- server: 193.29.139.204
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-074 276ms
+- server: 82.38.31.174
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-075 276ms
+- server: 82.38.31.184
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-076 279ms
+- server: 82.38.31.187
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-077 281ms
+- server: 202.50.253.99
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-078 283ms
+- server: 185.164.175.81
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-079 283ms
+- server: 82.110.60.9
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-080 285ms
+- server: 202.50.253.27
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-081 290ms
+- server: 82.38.31.42
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: oZIoA69Q8yhcQV8ka3Pa3A
+  name: PUB-082 292ms
+- server: 202.50.253.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-083 293ms
+- server: 185.213.23.63
+  port: 990
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: ARgvGZywA+gacgGV26Bvmu05+wZmRW/j+AdU+Z8Bt44=
+  name: PUB-084 295ms
+- server: 202.50.253.45
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-085 298ms
+- server: 202.50.253.63
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-086 304ms
+- type: vmess
+  network: ws
+  server: cf.090227.xyz
+  port: 443
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  skip-cert-verify: true
+  tls: true
+  alterId: 0
+  cipher: auto
+  ws-opts:
+    headers:
+      Host: vmess.lbw666.dpdns.org
+    path: /ws?ed=2048
+  name: PUB-087 308ms
+- server: 82.38.31.186
+  port: 8080
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: k1dBOmOB4oqi7Ump37a1bQ
+  name: PUB-088 310ms
+- cipher: chacha20-ietf-poly1305
+  password: QFWzCw2uX9B9i6qAYeFBIE
+  port: 443
+  server: bogging-eyeteeth-fly.freesocks.work
+  type: ss
+  name: PUB-089 314ms
+- server: sql.popmintxo.cc
+  port: 43385
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: AwW1fV6oDDQKh8r2znmptv59tPgt4eHVTgFaTqgKS2jiSdikJ7GyGCBYehDaK38S8yMgHFdbJqcTmRJSfYS5CFw345bNhFZa
+  name: PUB-090 317ms
+- server: staging.lastilhame.monster
+  port: 49917
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: G9ZuLN5DE9qqouTZwYUcvYsDJx8gyL1nCu3N7yRZFjPmYKhzSi8GkpVuexmTHAz2uvcErKkex1K2ceR2GH3L444HRNnN1YpP
+  name: PUB-091 334ms
+- server: 51.79.49.116
+  port: 8882
+  type: ss
+  cipher: aes-256-gcm
+  password: kDWvXYZoTBcGkC4
+  name: PUB-092 336ms
+- server: 198.98.53.130
+  port: 443
+  type: ss
+  cipher: chacha20-ietf-poly1305
+  password: eDfN7SODQceIOmIAbtJJtK
+  name: PUB-093 341ms
+- server: 84.247.155.196
+  port: 80
+  type: ss
+  cipher: aes-256-gcm
+  password: 3eOFeNssde7PYYMv
+  name: PUB-094 344ms
+- type: vless
+  network: ws
+  server: sc-thenetherlands1.09vpn.com
+  port: 80
+  uuid: 40cc9b52-25b8-4cd5-8b45-715ae26e6baf
+  skip-cert-verify: false
+  tls: false
+  udp: true
+  encryption: none
+  packet-encoding: xudp
+  ws-opts:
+    headers:
+      Host: sc-thenetherlands1.09vpn.com
+    path: /vless/
+  name: PUB-095 362ms
+- type: vmess
+  network: ws
+  server: 172.66.0.1
+  port: 443
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  skip-cert-verify: true
+  tls: true
+  alterId: 0
+  cipher: auto
+  ws-opts:
+    headers:
+      Host: vmess.lbw666.dpdns.org
+    path: /ws
+  name: PUB-096 362ms
+- type: vmess
+  network: tcp
+  server: 45.90.106.24
+  port: 1234
+  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
+  servername: 45.90.106.24
+  skip-cert-verify: true
+  tls: true
+  udp: true
+  alterId: 0
+  cipher: aes-128-gcm
+  name: PUB-097 368ms
 - type: vless
   network: ws
   server: 152.228.162.19
@@ -694,34 +770,13 @@ proxies:
     headers:
       Host: akamaized.net
     path: /vless/
-  name: PUB-087 279ms
-- type: vless
-  server: 77.90.61.135
-  port: 443
-  uuid: 8815925b-c7b8-4f94-9c24-9dc864f63a29
-  udp: true
-  tls: true
-  servername: www.cloudflare.com
-  sni: www.cloudflare.com
-  skip-cert-verify: false
-  client-fingerprint: safari
-  reality-opts:
-    public-key: XlEzAhUOUC-hZA2Uk2sctG5WR9lPeAUAHGNQVu9oAVg
-    short-id: ce1dc482
-  name: PUB-088 279ms
-- type: vless
-  network: ws
-  server: 138.124.70.41
-  port: 14430
-  uuid: 6cc745e3-4eb9-46c8-a4a1-85dee7b87edc
-  servername: 138.124.70.41
-  tls: false
-  encryption: none
-  ws-opts:
-    headers:
-      Host: 138.124.70.41
-    path: /vless
-  name: PUB-089 280ms
+  name: PUB-098 368ms
+- server: 202.50.253.81
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-099 368ms
 - type: vless
   network: ws
   server: ov-france1.09vpn.com
@@ -733,110 +788,7 @@ proxies:
     headers:
       Host: ov-france1.09vpn.com
     path: /vless/
-  name: PUB-090 280ms
-- type: vmess
-  network: tcp
-  server: 141.95.65.9
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  servername: supervpn.super.com
-  skip-cert-verify: true
-  tls: true
-  udp: true
-  alterId: 0
-  cipher: aes-128-gcm
-  client-fingerprint: chrome
-  name: PUB-091 285ms
-- type: vmess
-  network: tcp
-  server: 162.19.204.71
-  port: 1234
-  uuid: 5c040f1d-45db-43bd-8d46-e4950e433735
-  servername: supervpn.super.com
-  skip-cert-verify: true
-  tls: true
-  udp: true
-  alterId: 0
-  cipher: auto
-  client-fingerprint: chrome
-  name: PUB-092 287ms
-- server: 193.29.139.168
-  port: 8080
-  type: ss
-  cipher: chacha20-ietf-poly1305
-  password: QCXDxuDlTTMD7jtgHUjIoj
-  name: PUB-093 295ms
-- type: vless
-  server: ge-s-1.pythonmakemigreat.wiki
-  port: 443
-  uuid: f8d52ece-fad4-478d-875d-df6eed3befa7
-  flow: xtls-rprx-vision
-  udp: true
-  tls: true
-  servername: ge-s-1.pythonmakemigreat.wiki
-  sni: ge-s-1.pythonmakemigreat.wiki
-  skip-cert-verify: false
-  client-fingerprint: safari
-  reality-opts:
-    public-key: 5fkwwCKZzMsE6Eb_b3iqluu-1AWIfnYl-p0N3EL9Al8
-    short-id: 2c9a2790ad5900b2
-  name: PUB-094 301ms
-- server: 141.98.101.181
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  name: PUB-095 301ms
-- type: trojan
-  network: ws
-  server: 104.19.229.21
-  port: 443
-  password: humanity
-  skip-cert-verify: false
-  sni: www.calmlunch.com
-  ws-opts:
-    headers:
-      Host: www.calmlunch.com
-    path: /assignment
-  name: PUB-096 311ms
-- type: vless
-  network: ws
-  server: support.zoom.us
-  port: 80
-  uuid: fcdb24e3-5e66-4c45-b89e-ac9441f4dcda
-  servername: support.zoom.us
-  tls: false
-  ws-opts:
-    headers:
-      Host: free.sahanwickramasinghe.me
-    path: /
-  name: PUB-097 312ms
-- server: 202.50.253.45
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-098 312ms
-- server: 149.22.87.240
-  port: 443
-  type: ss
-  cipher: aes-128-gcm
-  password: shadowsocks
-  name: PUB-099 322ms
-- type: trojan
-  server: 165.215.250.14
-  port: 443
-  password: humanity
-  udp: true
-  tls: true
-  servername: www.calmlunch.com
-  sni: www.calmlunch.com
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  network: ws
-  ws-opts:
-    path: /assignment
-  name: PUB-100 323ms
+  name: PUB-100 370ms
 proxy-groups:
 - name: ♻️ 公共自动
   type: url-test
@@ -845,106 +797,106 @@ proxy-groups:
   tolerance: 80
   lazy: true
   proxies:
-  - PUB-001 10ms
-  - PUB-002 10ms
-  - PUB-003 23ms
-  - PUB-004 24ms
-  - PUB-005 25ms
-  - PUB-006 27ms
-  - PUB-007 46ms
-  - PUB-008 48ms
-  - PUB-009 48ms
-  - PUB-010 50ms
-  - PUB-011 60ms
-  - PUB-012 61ms
-  - PUB-013 65ms
-  - PUB-014 65ms
-  - PUB-015 77ms
-  - PUB-016 78ms
-  - PUB-017 79ms
-  - PUB-018 79ms
-  - PUB-019 80ms
-  - PUB-020 85ms
-  - PUB-021 88ms
-  - PUB-022 104ms
-  - PUB-023 105ms
-  - PUB-024 108ms
-  - PUB-025 136ms
-  - PUB-026 141ms
-  - PUB-027 148ms
-  - PUB-028 149ms
-  - PUB-029 157ms
-  - PUB-030 162ms
-  - PUB-031 166ms
-  - PUB-032 167ms
-  - PUB-033 172ms
-  - PUB-034 185ms
-  - PUB-035 188ms
-  - PUB-036 191ms
-  - PUB-037 193ms
-  - PUB-038 194ms
-  - PUB-039 195ms
-  - PUB-040 196ms
-  - PUB-041 197ms
-  - PUB-042 197ms
-  - PUB-043 197ms
-  - PUB-044 198ms
-  - PUB-045 199ms
-  - PUB-046 199ms
-  - PUB-047 200ms
-  - PUB-048 201ms
-  - PUB-049 201ms
-  - PUB-050 201ms
-  - PUB-051 203ms
-  - PUB-052 203ms
-  - PUB-053 205ms
-  - PUB-054 205ms
-  - PUB-055 205ms
-  - PUB-056 206ms
-  - PUB-057 206ms
-  - PUB-058 206ms
-  - PUB-059 208ms
-  - PUB-060 208ms
-  - PUB-061 208ms
-  - PUB-062 209ms
-  - PUB-063 209ms
-  - PUB-064 211ms
-  - PUB-065 213ms
-  - PUB-066 214ms
-  - PUB-067 214ms
-  - PUB-068 214ms
-  - PUB-069 215ms
-  - PUB-070 216ms
-  - PUB-071 217ms
-  - PUB-072 217ms
-  - PUB-073 218ms
-  - PUB-074 221ms
-  - PUB-075 221ms
-  - PUB-076 222ms
-  - PUB-077 223ms
-  - PUB-078 223ms
-  - PUB-079 226ms
-  - PUB-080 227ms
-  - PUB-081 232ms
-  - PUB-082 247ms
-  - PUB-083 256ms
-  - PUB-084 256ms
-  - PUB-085 274ms
-  - PUB-086 278ms
-  - PUB-087 279ms
-  - PUB-088 279ms
-  - PUB-089 280ms
-  - PUB-090 280ms
-  - PUB-091 285ms
-  - PUB-092 287ms
-  - PUB-093 295ms
-  - PUB-094 301ms
-  - PUB-095 301ms
-  - PUB-096 311ms
-  - PUB-097 312ms
-  - PUB-098 312ms
-  - PUB-099 322ms
-  - PUB-100 323ms
+  - PUB-001 33ms
+  - PUB-002 33ms
+  - PUB-003 36ms
+  - PUB-004 39ms
+  - PUB-005 75ms
+  - PUB-006 76ms
+  - PUB-007 79ms
+  - PUB-008 83ms
+  - PUB-009 84ms
+  - PUB-010 85ms
+  - PUB-011 85ms
+  - PUB-012 86ms
+  - PUB-013 89ms
+  - PUB-014 92ms
+  - PUB-015 93ms
+  - PUB-016 94ms
+  - PUB-017 96ms
+  - PUB-018 100ms
+  - PUB-019 102ms
+  - PUB-020 104ms
+  - PUB-021 107ms
+  - PUB-022 111ms
+  - PUB-023 111ms
+  - PUB-024 112ms
+  - PUB-025 116ms
+  - PUB-026 121ms
+  - PUB-027 126ms
+  - PUB-028 127ms
+  - PUB-029 135ms
+  - PUB-030 136ms
+  - PUB-031 136ms
+  - PUB-032 137ms
+  - PUB-033 169ms
+  - PUB-034 188ms
+  - PUB-035 202ms
+  - PUB-036 232ms
+  - PUB-037 240ms
+  - PUB-038 243ms
+  - PUB-039 246ms
+  - PUB-040 255ms
+  - PUB-041 256ms
+  - PUB-042 257ms
+  - PUB-043 258ms
+  - PUB-044 258ms
+  - PUB-045 259ms
+  - PUB-046 260ms
+  - PUB-047 261ms
+  - PUB-048 262ms
+  - PUB-049 262ms
+  - PUB-050 263ms
+  - PUB-051 264ms
+  - PUB-052 264ms
+  - PUB-053 264ms
+  - PUB-054 265ms
+  - PUB-055 267ms
+  - PUB-056 267ms
+  - PUB-057 267ms
+  - PUB-058 267ms
+  - PUB-059 267ms
+  - PUB-060 269ms
+  - PUB-061 269ms
+  - PUB-062 269ms
+  - PUB-063 269ms
+  - PUB-064 269ms
+  - PUB-065 270ms
+  - PUB-066 270ms
+  - PUB-067 271ms
+  - PUB-068 272ms
+  - PUB-069 272ms
+  - PUB-070 273ms
+  - PUB-071 274ms
+  - PUB-072 275ms
+  - PUB-073 275ms
+  - PUB-074 276ms
+  - PUB-075 276ms
+  - PUB-076 279ms
+  - PUB-077 281ms
+  - PUB-078 283ms
+  - PUB-079 283ms
+  - PUB-080 285ms
+  - PUB-081 290ms
+  - PUB-082 292ms
+  - PUB-083 293ms
+  - PUB-084 295ms
+  - PUB-085 298ms
+  - PUB-086 304ms
+  - PUB-087 308ms
+  - PUB-088 310ms
+  - PUB-089 314ms
+  - PUB-090 317ms
+  - PUB-091 334ms
+  - PUB-092 336ms
+  - PUB-093 341ms
+  - PUB-094 344ms
+  - PUB-095 362ms
+  - PUB-096 362ms
+  - PUB-097 368ms
+  - PUB-098 368ms
+  - PUB-099 368ms
+  - PUB-100 370ms
 - name: 🎯 手动选择
   type: select
   proxies:
@@ -953,217 +905,217 @@ proxy-groups:
   - 🏠 自建 fast5
   - 🏠 自建 fast2
   - 🏠 自建 fast4
-  - PUB-001 10ms
-  - PUB-002 10ms
-  - PUB-003 23ms
-  - PUB-004 24ms
-  - PUB-005 25ms
-  - PUB-006 27ms
-  - PUB-007 46ms
-  - PUB-008 48ms
-  - PUB-009 48ms
-  - PUB-010 50ms
-  - PUB-011 60ms
-  - PUB-012 61ms
-  - PUB-013 65ms
-  - PUB-014 65ms
-  - PUB-015 77ms
-  - PUB-016 78ms
-  - PUB-017 79ms
-  - PUB-018 79ms
-  - PUB-019 80ms
-  - PUB-020 85ms
-  - PUB-021 88ms
-  - PUB-022 104ms
-  - PUB-023 105ms
-  - PUB-024 108ms
-  - PUB-025 136ms
-  - PUB-026 141ms
-  - PUB-027 148ms
-  - PUB-028 149ms
-  - PUB-029 157ms
-  - PUB-030 162ms
-  - PUB-031 166ms
-  - PUB-032 167ms
-  - PUB-033 172ms
-  - PUB-034 185ms
-  - PUB-035 188ms
-  - PUB-036 191ms
-  - PUB-037 193ms
-  - PUB-038 194ms
-  - PUB-039 195ms
-  - PUB-040 196ms
-  - PUB-041 197ms
-  - PUB-042 197ms
-  - PUB-043 197ms
-  - PUB-044 198ms
-  - PUB-045 199ms
-  - PUB-046 199ms
-  - PUB-047 200ms
-  - PUB-048 201ms
-  - PUB-049 201ms
-  - PUB-050 201ms
-  - PUB-051 203ms
-  - PUB-052 203ms
-  - PUB-053 205ms
-  - PUB-054 205ms
-  - PUB-055 205ms
-  - PUB-056 206ms
-  - PUB-057 206ms
-  - PUB-058 206ms
-  - PUB-059 208ms
-  - PUB-060 208ms
-  - PUB-061 208ms
-  - PUB-062 209ms
-  - PUB-063 209ms
-  - PUB-064 211ms
-  - PUB-065 213ms
-  - PUB-066 214ms
-  - PUB-067 214ms
-  - PUB-068 214ms
-  - PUB-069 215ms
-  - PUB-070 216ms
-  - PUB-071 217ms
-  - PUB-072 217ms
-  - PUB-073 218ms
-  - PUB-074 221ms
-  - PUB-075 221ms
-  - PUB-076 222ms
-  - PUB-077 223ms
-  - PUB-078 223ms
-  - PUB-079 226ms
-  - PUB-080 227ms
-  - PUB-081 232ms
-  - PUB-082 247ms
-  - PUB-083 256ms
-  - PUB-084 256ms
-  - PUB-085 274ms
-  - PUB-086 278ms
-  - PUB-087 279ms
-  - PUB-088 279ms
-  - PUB-089 280ms
-  - PUB-090 280ms
-  - PUB-091 285ms
-  - PUB-092 287ms
-  - PUB-093 295ms
-  - PUB-094 301ms
-  - PUB-095 301ms
-  - PUB-096 311ms
-  - PUB-097 312ms
-  - PUB-098 312ms
-  - PUB-099 322ms
-  - PUB-100 323ms
+  - PUB-001 33ms
+  - PUB-002 33ms
+  - PUB-003 36ms
+  - PUB-004 39ms
+  - PUB-005 75ms
+  - PUB-006 76ms
+  - PUB-007 79ms
+  - PUB-008 83ms
+  - PUB-009 84ms
+  - PUB-010 85ms
+  - PUB-011 85ms
+  - PUB-012 86ms
+  - PUB-013 89ms
+  - PUB-014 92ms
+  - PUB-015 93ms
+  - PUB-016 94ms
+  - PUB-017 96ms
+  - PUB-018 100ms
+  - PUB-019 102ms
+  - PUB-020 104ms
+  - PUB-021 107ms
+  - PUB-022 111ms
+  - PUB-023 111ms
+  - PUB-024 112ms
+  - PUB-025 116ms
+  - PUB-026 121ms
+  - PUB-027 126ms
+  - PUB-028 127ms
+  - PUB-029 135ms
+  - PUB-030 136ms
+  - PUB-031 136ms
+  - PUB-032 137ms
+  - PUB-033 169ms
+  - PUB-034 188ms
+  - PUB-035 202ms
+  - PUB-036 232ms
+  - PUB-037 240ms
+  - PUB-038 243ms
+  - PUB-039 246ms
+  - PUB-040 255ms
+  - PUB-041 256ms
+  - PUB-042 257ms
+  - PUB-043 258ms
+  - PUB-044 258ms
+  - PUB-045 259ms
+  - PUB-046 260ms
+  - PUB-047 261ms
+  - PUB-048 262ms
+  - PUB-049 262ms
+  - PUB-050 263ms
+  - PUB-051 264ms
+  - PUB-052 264ms
+  - PUB-053 264ms
+  - PUB-054 265ms
+  - PUB-055 267ms
+  - PUB-056 267ms
+  - PUB-057 267ms
+  - PUB-058 267ms
+  - PUB-059 267ms
+  - PUB-060 269ms
+  - PUB-061 269ms
+  - PUB-062 269ms
+  - PUB-063 269ms
+  - PUB-064 269ms
+  - PUB-065 270ms
+  - PUB-066 270ms
+  - PUB-067 271ms
+  - PUB-068 272ms
+  - PUB-069 272ms
+  - PUB-070 273ms
+  - PUB-071 274ms
+  - PUB-072 275ms
+  - PUB-073 275ms
+  - PUB-074 276ms
+  - PUB-075 276ms
+  - PUB-076 279ms
+  - PUB-077 281ms
+  - PUB-078 283ms
+  - PUB-079 283ms
+  - PUB-080 285ms
+  - PUB-081 290ms
+  - PUB-082 292ms
+  - PUB-083 293ms
+  - PUB-084 295ms
+  - PUB-085 298ms
+  - PUB-086 304ms
+  - PUB-087 308ms
+  - PUB-088 310ms
+  - PUB-089 314ms
+  - PUB-090 317ms
+  - PUB-091 334ms
+  - PUB-092 336ms
+  - PUB-093 341ms
+  - PUB-094 344ms
+  - PUB-095 362ms
+  - PUB-096 362ms
+  - PUB-097 368ms
+  - PUB-098 368ms
+  - PUB-099 368ms
+  - PUB-100 370ms
   - DIRECT
 - name: 🚀 境外代理
   type: fallback
   url: http://cp.cloudflare.com/generate_204
   interval: 300
   proxies:
+  - ♻️ 公共自动
   - 🏠 自建 fast3
   - 🏠 自建 fast5
   - 🏠 自建 fast2
   - 🏠 自建 fast4
-  - PUB-001 10ms
-  - PUB-002 10ms
-  - PUB-003 23ms
-  - PUB-004 24ms
-  - PUB-005 25ms
-  - PUB-006 27ms
-  - PUB-007 46ms
-  - PUB-008 48ms
-  - PUB-009 48ms
-  - PUB-010 50ms
-  - PUB-011 60ms
-  - PUB-012 61ms
-  - PUB-013 65ms
-  - PUB-014 65ms
-  - PUB-015 77ms
-  - PUB-016 78ms
-  - PUB-017 79ms
-  - PUB-018 79ms
-  - PUB-019 80ms
-  - PUB-020 85ms
-  - PUB-021 88ms
-  - PUB-022 104ms
-  - PUB-023 105ms
-  - PUB-024 108ms
-  - PUB-025 136ms
-  - PUB-026 141ms
-  - PUB-027 148ms
-  - PUB-028 149ms
-  - PUB-029 157ms
-  - PUB-030 162ms
-  - PUB-031 166ms
-  - PUB-032 167ms
-  - PUB-033 172ms
-  - PUB-034 185ms
-  - PUB-035 188ms
-  - PUB-036 191ms
-  - PUB-037 193ms
-  - PUB-038 194ms
-  - PUB-039 195ms
-  - PUB-040 196ms
-  - PUB-041 197ms
-  - PUB-042 197ms
-  - PUB-043 197ms
-  - PUB-044 198ms
-  - PUB-045 199ms
-  - PUB-046 199ms
-  - PUB-047 200ms
-  - PUB-048 201ms
-  - PUB-049 201ms
-  - PUB-050 201ms
-  - PUB-051 203ms
-  - PUB-052 203ms
-  - PUB-053 205ms
-  - PUB-054 205ms
-  - PUB-055 205ms
-  - PUB-056 206ms
-  - PUB-057 206ms
-  - PUB-058 206ms
-  - PUB-059 208ms
-  - PUB-060 208ms
-  - PUB-061 208ms
-  - PUB-062 209ms
-  - PUB-063 209ms
-  - PUB-064 211ms
-  - PUB-065 213ms
-  - PUB-066 214ms
-  - PUB-067 214ms
-  - PUB-068 214ms
-  - PUB-069 215ms
-  - PUB-070 216ms
-  - PUB-071 217ms
-  - PUB-072 217ms
-  - PUB-073 218ms
-  - PUB-074 221ms
-  - PUB-075 221ms
-  - PUB-076 222ms
-  - PUB-077 223ms
-  - PUB-078 223ms
-  - PUB-079 226ms
-  - PUB-080 227ms
-  - PUB-081 232ms
-  - PUB-082 247ms
-  - PUB-083 256ms
-  - PUB-084 256ms
-  - PUB-085 274ms
-  - PUB-086 278ms
-  - PUB-087 279ms
-  - PUB-088 279ms
-  - PUB-089 280ms
-  - PUB-090 280ms
-  - PUB-091 285ms
-  - PUB-092 287ms
-  - PUB-093 295ms
-  - PUB-094 301ms
-  - PUB-095 301ms
-  - PUB-096 311ms
-  - PUB-097 312ms
-  - PUB-098 312ms
-  - PUB-099 322ms
-  - PUB-100 323ms
-  - ♻️ 公共自动
+  - PUB-001 33ms
+  - PUB-002 33ms
+  - PUB-003 36ms
+  - PUB-004 39ms
+  - PUB-005 75ms
+  - PUB-006 76ms
+  - PUB-007 79ms
+  - PUB-008 83ms
+  - PUB-009 84ms
+  - PUB-010 85ms
+  - PUB-011 85ms
+  - PUB-012 86ms
+  - PUB-013 89ms
+  - PUB-014 92ms
+  - PUB-015 93ms
+  - PUB-016 94ms
+  - PUB-017 96ms
+  - PUB-018 100ms
+  - PUB-019 102ms
+  - PUB-020 104ms
+  - PUB-021 107ms
+  - PUB-022 111ms
+  - PUB-023 111ms
+  - PUB-024 112ms
+  - PUB-025 116ms
+  - PUB-026 121ms
+  - PUB-027 126ms
+  - PUB-028 127ms
+  - PUB-029 135ms
+  - PUB-030 136ms
+  - PUB-031 136ms
+  - PUB-032 137ms
+  - PUB-033 169ms
+  - PUB-034 188ms
+  - PUB-035 202ms
+  - PUB-036 232ms
+  - PUB-037 240ms
+  - PUB-038 243ms
+  - PUB-039 246ms
+  - PUB-040 255ms
+  - PUB-041 256ms
+  - PUB-042 257ms
+  - PUB-043 258ms
+  - PUB-044 258ms
+  - PUB-045 259ms
+  - PUB-046 260ms
+  - PUB-047 261ms
+  - PUB-048 262ms
+  - PUB-049 262ms
+  - PUB-050 263ms
+  - PUB-051 264ms
+  - PUB-052 264ms
+  - PUB-053 264ms
+  - PUB-054 265ms
+  - PUB-055 267ms
+  - PUB-056 267ms
+  - PUB-057 267ms
+  - PUB-058 267ms
+  - PUB-059 267ms
+  - PUB-060 269ms
+  - PUB-061 269ms
+  - PUB-062 269ms
+  - PUB-063 269ms
+  - PUB-064 269ms
+  - PUB-065 270ms
+  - PUB-066 270ms
+  - PUB-067 271ms
+  - PUB-068 272ms
+  - PUB-069 272ms
+  - PUB-070 273ms
+  - PUB-071 274ms
+  - PUB-072 275ms
+  - PUB-073 275ms
+  - PUB-074 276ms
+  - PUB-075 276ms
+  - PUB-076 279ms
+  - PUB-077 281ms
+  - PUB-078 283ms
+  - PUB-079 283ms
+  - PUB-080 285ms
+  - PUB-081 290ms
+  - PUB-082 292ms
+  - PUB-083 293ms
+  - PUB-084 295ms
+  - PUB-085 298ms
+  - PUB-086 304ms
+  - PUB-087 308ms
+  - PUB-088 310ms
+  - PUB-089 314ms
+  - PUB-090 317ms
+  - PUB-091 334ms
+  - PUB-092 336ms
+  - PUB-093 341ms
+  - PUB-094 344ms
+  - PUB-095 362ms
+  - PUB-096 362ms
+  - PUB-097 368ms
+  - PUB-098 368ms
+  - PUB-099 368ms
+  - PUB-100 370ms
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
 - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
