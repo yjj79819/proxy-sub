@@ -81,3 +81,12 @@ jobs:
             git commit -m "chore: 更新订阅 $(date -u +%Y-%m-%dT%H:%MZ) | ${N}"
             git push
           fi
+
+      # jsDelivr 对 @main 有 12 小时缓存，不主动刷就会让用户订到旧文件。
+      # 失败不影响主流程（只是新鲜度差一点）。
+      - name: 刷新 jsDelivr 缓存
+        run: |
+          for f in dist/config-cn.yaml dist/config.yaml; do
+            curl -s --max-time 25 "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/$f" || true
+            echo " purged $f"
+          done

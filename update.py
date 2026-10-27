@@ -302,7 +302,8 @@ def ensure_mihomo():
     env = os.environ.get("MIHOMO_BIN")
     if env and os.path.exists(env):
         return env
-    for cand in ("mihomo", "mihomo.exe"):
+    for cand in ("mihomo", "mihomo.exe",
+                 os.path.join("bin", "mihomo"), os.path.join("bin", "mihomo.exe")):
         p = os.path.join(HERE, cand)
         if os.path.exists(p):
             return p
