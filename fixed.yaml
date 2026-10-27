@@ -65,6 +65,7 @@ proxy-providers:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 600
+      timeout: 8000
       lazy: true
 
   free18:
@@ -77,6 +78,7 @@ proxy-providers:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 600
+      timeout: 8000
       lazy: true
 
   mahdibland:
@@ -89,6 +91,7 @@ proxy-providers:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 600
+      timeout: 8000
       lazy: true
 
   peasoft:
@@ -101,6 +104,7 @@ proxy-providers:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 600
+      timeout: 8000
       lazy: true
 
   ripaojiedian:
@@ -113,6 +117,7 @@ proxy-providers:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 600
+      timeout: 8000
       lazy: true
 
   ermaozi:
@@ -125,6 +130,7 @@ proxy-providers:
       enable: true
       url: http://cp.cloudflare.com/generate_204
       interval: 600
+      timeout: 8000
       lazy: true
 
 # ---------------------------------------------------------------------------
@@ -205,8 +211,8 @@ proxy-groups:
   - name: "🚀 境外代理"
     type: fallback
     url: http://cp.cloudflare.com/generate_204
-    interval: 180
-    timeout: 3000
+    interval: 300
+    timeout: 8000
     proxies:
       - "🏠 自建 fast3"
       - "🏠 自建 fast5"
