@@ -74,6 +74,7 @@ GitHub Actions（美国）   update.py
 | `remote_refine.py` | 在云机上运行：`TCP_ONLY=1` 时只做 TCP 预筛并输出 JSON |
 | `refine.py` | 手动工具：本机（中国宽带）做代理层复核 |
 | `counts.py` | 给 CI 拼提交信息（`US 100 / CN 9`） |
+| `push_api.py` | 应急提交通道：走 REST API，不依赖代理（FlClash 节点死掉时 `git push` 会握手失败） |
 | `sources.txt` | 源清单（当前 6 个活源） |
 | `builtin.yaml` | 自建 4 个 VLESS+WS+TLS 节点，永远排分组最前 |
 | `dist/config.yaml` | 美国视角候选池（100） |
