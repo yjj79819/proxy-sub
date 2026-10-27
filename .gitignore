@@ -1,0 +1,19 @@
+# 二进制与地理数据（体积大，本地验证用，不进仓库）
+mihomo
+mihomo.exe
+*.zip
+*.gz
+*.dat
+*.mmdb
+*.metadb
+
+# 本地验证用临时文件
+_verify.yaml
+_*.yaml
+run.log
+cache.db
+__pycache__/
+*.pyc
+
+# 本地代理地址/凭据不入库
+.env

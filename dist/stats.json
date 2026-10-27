@@ -1,0 +1,144 @@
+{
+ "updated": "2026-10-27 20:30:38 +0800",
+ "sources": {
+  "raw.githubusercontent.com/anaer/Sub/main/clash": {
+   "ok": true,
+   "note": "clash-yaml 2487",
+   "count": 2487
+  },
+  "raw.githubusercontent.com/free18/v2ray/main/c.": {
+   "ok": true,
+   "note": "clash-yaml 222",
+   "count": 222
+  },
+  "raw.githubusercontent.com/mahdibland/Shadowsoc": {
+   "ok": true,
+   "note": "clash-yaml 201",
+   "count": 201
+  },
+  "raw.githubusercontent.com/peasoft/NoMoreWalls/": {
+   "ok": true,
+   "note": "clash-yaml 101",
+   "count": 101
+  },
+  "raw.githubusercontent.com/ripaojiedian/freenod": {
+   "ok": true,
+   "note": "clash-yaml 14",
+   "count": 14
+  },
+  "raw.githubusercontent.com/ermaozi01/free_clash": {
+   "ok": true,
+   "note": "clash-yaml 19",
+   "count": 19
+  }
+ },
+ "counts": {
+  "parsed": 3053,
+  "unique": 2885,
+  "tcp_ok": 1246,
+  "alive": 19,
+  "kept": 14
+ },
+ "top": [
+  {
+   "delay": 681,
+   "type": "vless",
+   "server": "softice.net",
+   "port": 443
+  },
+  {
+   "delay": 717,
+   "type": "trojan",
+   "server": "216.152.156.65",
+   "port": 443
+  },
+  {
+   "delay": 782,
+   "type": "ss",
+   "server": "202.50.253.27",
+   "port": 19999
+  },
+  {
+   "delay": 795,
+   "type": "ss",
+   "server": "202.50.253.54",
+   "port": 19999
+  },
+  {
+   "delay": 854,
+   "type": "vless",
+   "server": "193.233.221.86",
+   "port": 443
+  },
+  {
+   "delay": 1237,
+   "type": "vless",
+   "server": "nl-central.v8x2b.lol",
+   "port": 443
+  },
+  {
+   "delay": 1426,
+   "type": "vless",
+   "server": "188.120.234.199",
+   "port": 443
+  },
+  {
+   "delay": 1510,
+   "type": "ss",
+   "server": "202.50.253.36",
+   "port": 19999
+  },
+  {
+   "delay": 1780,
+   "type": "ss",
+   "server": "202.50.253.63",
+   "port": 19999
+  },
+  {
+   "delay": 1788,
+   "type": "ss",
+   "server": "202.50.253.72",
+   "port": 19999
+  },
+  {
+   "delay": 1834,
+   "type": "ss",
+   "server": "202.50.253.81",
+   "port": 19999
+  },
+  {
+   "delay": 1918,
+   "type": "ss",
+   "server": "202.50.253.18",
+   "port": 19999
+  },
+  {
+   "delay": 1927,
+   "type": "ss",
+   "server": "202.50.253.90",
+   "port": 19999
+  },
+  {
+   "delay": 2460,
+   "type": "ss",
+   "server": "202.50.253.45",
+   "port": 19999
+  }
+ ],
+ "delay": {
+  "P1128": 681,
+  "P1230": 717,
+  "P1213": 782,
+  "P1211": 795,
+  "P1168": 854,
+  "P1163": 1237,
+  "P1167": 1426,
+  "P1215": 1510,
+  "P1216": 1780,
+  "P1208": 1788,
+  "P1209": 1834,
+  "P1214": 1918,
+  "P1210": 1927,
+  "P1217": 2460
+ }
+}

@@ -1,0 +1,321 @@
+# 由 subhub 自动生成，请勿手改（会被覆盖）
+# 更新时间: 2026-10-27 20:30:38 +0800
+# 公共节点: 14 个（源 6，去重 2885，TCP 通 1246，实测可用 19）
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
+unified-delay: true
+tcp-concurrent: true
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+  - '*.lan'
+  - '*.local'
+  - +.sina.com.cn
+  - +.eastmoney.com
+  - +.qt.gtimg.cn
+  - +.10jqka.com.cn
+  - +.tdx.com.cn
+  default-nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  nameserver:
+  - 223.5.5.5
+  - 119.29.29.29
+  - 114.114.114.114
+  fallback:
+  - https://1.1.1.1/dns-query
+  - https://8.8.8.8/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+    - 240.0.0.0/4
+proxies:
+- name: 🏠 自建 fast3
+  type: vless
+  server: 104.17.141.217
+  port: 443
+  uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+  udp: true
+  tls: true
+  servername: cf.legaga.top
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: cf.legaga.top
+- name: 🏠 自建 fast5
+  type: vless
+  server: 104.16.14.78
+  port: 443
+  uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+  udp: true
+  tls: true
+  servername: cf.legaga.top
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: cf.legaga.top
+- name: 🏠 自建 fast2
+  type: vless
+  server: 162.159.236.194
+  port: 443
+  uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+  udp: true
+  tls: true
+  servername: cf.legaga.top
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: cf.legaga.top
+- name: 🏠 自建 fast4
+  type: vless
+  server: 172.64.67.117
+  port: 443
+  uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+  udp: true
+  tls: true
+  servername: cf.legaga.top
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /?ed=2560
+    headers:
+      Host: cf.legaga.top
+- type: vless
+  server: softice.net
+  port: 443
+  uuid: ef328563-cda1-4530-9b0a-988cc5a74d78
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: softice.net
+  sni: softice.net
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  name: PUB-001 681ms
+- password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  port: 443
+  server: 216.152.156.65
+  skip-cert-verify: true
+  sni: learn.healthcarejobshubenhancemedicalprofessionalskillstoday.com
+  type: trojan
+  udp: true
+  name: PUB-002 717ms
+- server: 202.50.253.27
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-003 782ms
+- server: 202.50.253.54
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-004 795ms
+- type: vless
+  server: 193.233.221.86
+  port: 443
+  uuid: 37ca5f34-2531-4fda-a781-20f3845fea88
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: capableconjuretarnish.clarionconsult.info
+  sni: capableconjuretarnish.clarionconsult.info
+  skip-cert-verify: false
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 2iedjEliJfyf7VYxQjSHRiY0RY9ylwj-GtO4MCfuQhg
+    short-id: a50534e181896415
+  name: PUB-005 854ms
+- type: vless
+  server: nl-central.v8x2b.lol
+  port: 443
+  uuid: 846cedee-2a52-0002-a0b9-11850ead6a8b
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: nl-central.v8x2b.lol
+  sni: nl-central.v8x2b.lol
+  skip-cert-verify: false
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: q3UXFUE5yYxNE4ugLUnYdpc9WRtR-sjsDTrKsiqzDHE
+  name: PUB-006 1237ms
+- type: vless
+  server: 188.120.234.199
+  port: 443
+  uuid: 37ca5f34-2531-4fda-a781-20f3845fea88
+  flow: xtls-rprx-vision
+  udp: true
+  tls: true
+  servername: payeeclickerhalogen.berylcord.net
+  sni: payeeclickerhalogen.berylcord.net
+  skip-cert-verify: false
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: QPfM5knVgOkIykx2AC8S1MvkO_x-T9xMRYJdkF9aEng
+    short-id: fda83f2787e6016d
+  name: PUB-007 1426ms
+- server: 202.50.253.36
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-008 1510ms
+- server: 202.50.253.63
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-009 1780ms
+- server: 202.50.253.72
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-010 1788ms
+- server: 202.50.253.81
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-011 1834ms
+- server: 202.50.253.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-012 1918ms
+- server: 202.50.253.90
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-013 1927ms
+- server: 202.50.253.45
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-014 2460ms
+proxy-groups:
+- name: ♻️ 公共自动
+  type: url-test
+  url: http://cp.cloudflare.com/generate_204
+  interval: 600
+  tolerance: 80
+  lazy: true
+  proxies:
+  - PUB-001 681ms
+  - PUB-002 717ms
+  - PUB-003 782ms
+  - PUB-004 795ms
+  - PUB-005 854ms
+  - PUB-006 1237ms
+  - PUB-007 1426ms
+  - PUB-008 1510ms
+  - PUB-009 1780ms
+  - PUB-010 1788ms
+  - PUB-011 1834ms
+  - PUB-012 1918ms
+  - PUB-013 1927ms
+  - PUB-014 2460ms
+- name: 🎯 手动选择
+  type: select
+  proxies:
+  - ♻️ 公共自动
+  - 🏠 自建 fast3
+  - 🏠 自建 fast5
+  - 🏠 自建 fast2
+  - 🏠 自建 fast4
+  - PUB-001 681ms
+  - PUB-002 717ms
+  - PUB-003 782ms
+  - PUB-004 795ms
+  - PUB-005 854ms
+  - PUB-006 1237ms
+  - PUB-007 1426ms
+  - PUB-008 1510ms
+  - PUB-009 1780ms
+  - PUB-010 1788ms
+  - PUB-011 1834ms
+  - PUB-012 1918ms
+  - PUB-013 1927ms
+  - PUB-014 2460ms
+  - DIRECT
+- name: 🚀 境外代理
+  type: fallback
+  url: http://cp.cloudflare.com/generate_204
+  interval: 300
+  proxies:
+  - 🏠 自建 fast3
+  - 🏠 自建 fast5
+  - 🏠 自建 fast2
+  - 🏠 自建 fast4
+  - PUB-001 681ms
+  - PUB-002 717ms
+  - PUB-003 782ms
+  - PUB-004 795ms
+  - PUB-005 854ms
+  - PUB-006 1237ms
+  - PUB-007 1426ms
+  - PUB-008 1510ms
+  - PUB-009 1780ms
+  - PUB-010 1788ms
+  - PUB-011 1834ms
+  - PUB-012 1918ms
+  - PUB-013 1927ms
+  - PUB-014 2460ms
+  - ♻️ 公共自动
+rules:
+- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+- DOMAIN-SUFFIX,local,DIRECT
+- DOMAIN-SUFFIX,lan,DIRECT
+- DOMAIN-SUFFIX,legaga.top,DIRECT
+- GEOSITE,GOOGLE,🚀 境外代理
+- GEOSITE,GITHUB,🚀 境外代理
+- GEOSITE,OPENAI,🚀 境外代理
+- GEOSITE,TELEGRAM,🚀 境外代理
+- GEOSITE,YOUTUBE,🚀 境外代理
+- GEOSITE,TWITTER,🚀 境外代理
+- GEOSITE,GEOLOCATION-CN,DIRECT
+- DOMAIN-SUFFIX,cn,DIRECT
+- DOMAIN-SUFFIX,sina.com.cn,DIRECT
+- DOMAIN-SUFFIX,sinajs.cn,DIRECT
+- DOMAIN-SUFFIX,eastmoney.com,DIRECT
+- DOMAIN-SUFFIX,gtimg.cn,DIRECT
+- DOMAIN-SUFFIX,qq.com,DIRECT
+- DOMAIN-SUFFIX,10jqka.com.cn,DIRECT
+- DOMAIN-SUFFIX,hexun.com,DIRECT
+- DOMAIN-SUFFIX,cninfo.com.cn,DIRECT
+- DOMAIN-SUFFIX,sse.com.cn,DIRECT
+- DOMAIN-SUFFIX,szse.cn,DIRECT
+- DOMAIN-SUFFIX,csindex.com.cn,DIRECT
+- DOMAIN-SUFFIX,tdx.com.cn,DIRECT
+- DOMAIN-SUFFIX,tdxdata.cn,DIRECT
+- GEOSITE,GEOLOCATION-!CN,🚀 境外代理
+- GEOIP,CN,DIRECT
+- MATCH,🚀 境外代理

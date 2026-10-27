@@ -1,0 +1,62 @@
+# 自建节点：优先级高于所有公共节点，永远排在分组最前面
+# 公共节点 2026-10-27 实测可用率 1.36%，自建节点 4/4 可用 —— 顺序不能反
+proxies:
+  - name: "🏠 自建 fast3"
+    type: vless
+    server: 104.17.141.217
+    port: 443
+    uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+    udp: true
+    tls: true
+    servername: cf.legaga.top
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: cf.legaga.top
+
+  - name: "🏠 自建 fast5"
+    type: vless
+    server: 104.16.14.78
+    port: 443
+    uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+    udp: true
+    tls: true
+    servername: cf.legaga.top
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: cf.legaga.top
+
+  - name: "🏠 自建 fast2"
+    type: vless
+    server: 162.159.236.194
+    port: 443
+    uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+    udp: true
+    tls: true
+    servername: cf.legaga.top
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: cf.legaga.top
+
+  - name: "🏠 自建 fast4"
+    type: vless
+    server: 172.64.67.117
+    port: 443
+    uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+    udp: true
+    tls: true
+    servername: cf.legaga.top
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: cf.legaga.top

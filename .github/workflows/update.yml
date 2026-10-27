@@ -1,0 +1,56 @@
+name: update-subscription
+
+# 每天北京时间 04:17 跑（UTC 20:17）。避开整点，GitHub 的定时任务在整点容易排队延迟。
+on:
+  schedule:
+    - cron: "17 20 * * *"
+  workflow_dispatch:        # 支持手动触发
+  push:
+    branches: [main]
+    paths:                  # 只改脚本/源清单时自动重跑
+      - "update.py"
+      - "sources.txt"
+      - "builtin.yaml"
+      - ".github/workflows/update.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: subhub
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 安装依赖
+        run: pip install --quiet pyyaml
+
+      - name: 抓取 + 测速 + 生成配置
+        run: python update.py
+
+      - name: 提交变更
+        run: |
+          if [ ! -f dist/config.yaml ]; then
+            echo "本次未生成配置（可用节点不足），跳过提交"
+            exit 0
+          fi
+          git config user.name  "subhub-bot"
+          git config user.email "subhub-bot@users.noreply.github.com"
+          git add dist/
+          if git diff --staged --quiet; then
+            echo "内容无变化，不产生空提交"
+          else
+            N=$(python -c "import json;d=json.load(open('dist/stats.json'));c=d['counts'];print(f\"{c['kept']}/{c['unique']}\")")
+            git commit -m "chore: 更新订阅 $(date -u +%Y-%m-%dT%H:%MZ) | 可用 ${N}"
+            git push
+          fi
