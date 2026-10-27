@@ -1,38 +1,29 @@
 {
- "updated": "2026-10-27 20:37:54 +0800",
- "view": "CN (本机中国视角)",
+ "updated": "2026-10-27 12:55:43 +0000",
+ "view": "CN-TCP (腾讯云广州 TCP 预筛) + 客户端 url-test 兜底",
  "counts": {
   "candidates": 100,
-  "tcp_ok": 7,
-  "alive": 6,
-  "kept": 4
+  "tcp_ok": 9,
+  "alive": 9,
+  "kept": 9
  },
- "top": [
-  {
-   "delay": 696,
-   "type": "ss",
-   "server": "202.50.253.99"
-  },
-  {
-   "delay": 726,
-   "type": "trojan",
-   "server": "216.152.156.65"
-  },
-  {
-   "delay": 781,
-   "type": "ss",
-   "server": "202.50.253.18"
-  },
-  {
-   "delay": 1024,
-   "type": "ss",
-   "server": "177.202.111.19"
-  }
- ],
+ "remote": {
+  "candidates": 100,
+  "tcp_ok": 9,
+  "alive": 9,
+  "elapsed": 12.6,
+  "view": "CN-TCP",
+  "host": "VM-0-5-ubuntu"
+ },
  "delay": {
-  "P0001": 696,
-  "P0000": 726,
-  "P0005": 781,
-  "P0004": 1024
+  "C0020": 0,
+  "C0022": 0,
+  "C0023": 0,
+  "C0075": 0,
+  "C0083": 0,
+  "C0084": 0,
+  "C0085": 0,
+  "C0086": 0,
+  "C0098": 0
  }
 }
