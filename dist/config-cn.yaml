@@ -1,6 +1,6 @@
 # 由 ci_refine.py 生成（中国视角 TCP 预筛），请勿手改
-# 更新时间: 2026-10-27 13:31:07 +0000
-# 候选池 100 -> 中国 TCP 可连 5 -> 写入 5
+# 更新时间: 2026-10-27 13:58:19 +0000
+# 候选池 100 -> 中国 TCP 可连 11 -> 写入 11
 # 说明：延迟未标注，因代理层测速由客户端 url-test 完成
 #       （云服务器 IP 被免费节点封禁，云上测代理层恒为 0）
 mixed-port: 7890
@@ -100,13 +100,19 @@ proxies:
     path: /?ed=2560
     headers:
       Host: cf.legaga.top
-- password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+- type: vmess
+  network: ws
+  server: guanwang.awsno.com
   port: 443
-  server: 216.152.156.65
+  uuid: 6a89a215-22bf-4bd7-9642-b95b2e09583a
   skip-cert-verify: true
-  sni: learn.healthcarejobshubenhancemedicalprofessionalskillstoday.com
-  type: trojan
-  udp: true
+  tls: true
+  alterId: 0
+  cipher: auto
+  ws-opts:
+    headers:
+      Host: guanwang.awsno.com
+    path: /hls/cctv5phd.m3u8
   name: PUB-001
 - type: vmess
   network: ws
@@ -122,11 +128,13 @@ proxies:
       Host: vmess.lbw666.dpdns.org
     path: /ws?ed=2048
   name: PUB-002
-- server: 202.50.253.63
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+- password: 0ab6c98dae3b48e8b9c4a776b6c9c19a
+  port: 443
+  server: 216.152.156.65
+  skip-cert-verify: true
+  sni: learn.healthcarejobshubenhancemedicalprofessionalskillstoday.com
+  type: trojan
+  udp: true
   name: PUB-003
 - type: vmess
   network: ws
@@ -142,12 +150,55 @@ proxies:
       Host: vmess.lbw666.dpdns.org
     path: /ws
   name: PUB-004
+- alterId: 0
+  cipher: auto
+  http-opts:
+    method: GET
+    path:
+    - /
+  network: http
+  port: 80
+  server: 43.155.199.22
+  tls: false
+  type: vmess
+  uuid: 3722ad16-f3e1-4406-b04a-929b529d8e0d
+  name: PUB-005
+- server: 202.50.253.81
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-006
+- server: 202.50.253.36
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-007
+- server: 202.50.253.27
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-008
+- server: 202.50.253.99
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-009
+- server: 202.50.253.54
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-010
 - server: 202.50.253.18
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-005
+  name: PUB-011
 proxy-groups:
 - name: 🏠 自建
   type: url-test
@@ -172,6 +223,12 @@ proxy-groups:
   - PUB-003
   - PUB-004
   - PUB-005
+  - PUB-006
+  - PUB-007
+  - PUB-008
+  - PUB-009
+  - PUB-010
+  - PUB-011
 - name: 🎯 手动选择
   type: select
   proxies:
@@ -186,6 +243,12 @@ proxy-groups:
   - PUB-003
   - PUB-004
   - PUB-005
+  - PUB-006
+  - PUB-007
+  - PUB-008
+  - PUB-009
+  - PUB-010
+  - PUB-011
   - DIRECT
 - name: 🚀 境外代理
   type: fallback
@@ -201,6 +264,12 @@ proxy-groups:
   - PUB-003
   - PUB-004
   - PUB-005
+  - PUB-006
+  - PUB-007
+  - PUB-008
+  - PUB-009
+  - PUB-010
+  - PUB-011
   - ♻️ 公共自动
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
