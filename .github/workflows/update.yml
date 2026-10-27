@@ -82,11 +82,20 @@ jobs:
             git push
           fi
 
-      # jsDelivr 对 @main 有 12 小时缓存，不主动刷就会让用户订到旧文件。
-      # 失败不影响主流程（只是新鲜度差一点）。
-      - name: 刷新 jsDelivr 缓存
+      # jsDelivr 的 @main 分支别名有 ~12h 缓存，purge 也刷不掉（实测），所以正式订阅地址用
+      # gh-proxy 直通 raw。这一步从中国大陆入口回读一次，确认订阅真的能取到、且是刚生成的版本。
+      - name: 回读订阅校验（中国镜像）
         run: |
-          for f in dist/config-cn.yaml dist/config.yaml; do
-            curl -s --max-time 25 "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/$f" || true
-            echo " purged $f"
-          done
+          URL="https://gh-proxy.com/https://raw.githubusercontent.com/${{ github.repository }}/main/dist/config-cn.yaml"
+          BODY=$(curl -s --max-time 30 "$URL" || true)
+          if [ -z "$BODY" ]; then
+            echo "::warning::镜像取不到，跳过校验（不影响已提交的配置）"
+            exit 0
+          fi
+          echo "$BODY" | head -3
+          NP=$(echo "$BODY" | grep -c "name: PUB" || true)
+          NG=$(echo "$BODY" | grep -c "name: 🏠" || true)
+          echo "回读结果：公共 ${NP} + 自建 ${NG}"
+          if [ "$NG" -lt 1 ]; then
+            echo "::warning::回读内容不含自建节点，镜像可能返回了旧版或错误页"
+          fi

@@ -107,17 +107,33 @@ apt-get install -y python3-yaml
 
 ## FlClash 接入
 
+**主地址（每次都新鲜，实测 1.0s / 5845B）**：
+
+```
+https://gh-proxy.com/https://raw.githubusercontent.com/yjj79819/proxy-sub/main/dist/config-cn.yaml
+```
+
+**备用地址（企业 CDN 稳定，但 `@main` 有 ~12h 缓存，可能拿到昨晚的版本）**：
+
 ```
 https://cdn.jsdelivr.net/gh/yjj79819/proxy-sub@main/dist/config-cn.yaml
 ```
 
-国内直连 `raw.githubusercontent.com` 会被重置（实测 20s 后 `ConnectionReset`），
-jsDelivr 直连 **0.88s / 6074B** 正常，所以订阅用 jsDelivr。
-CI 每次推完会调 `purge.jsdelivr.net` 主动刷缓存，否则 jsDelivr 可能给你 12 小时前的旧文件。
+为什么主地址不是 jsDelivr：实测 jsDelivr 的 `@main` 分支别名存在约 12 小时的分支解析缓存，
+**调 `purge.jsdelivr.net` 返回 `CF:true FY:true` 也刷不掉**（等 10 分钟仍是旧版本）。
+对比同一时刻 `@<commit-sha>` 路径立刻返回新内容 —— 说明不是内容缓存，而是分支别名解析缓存。
+`raw.githubusercontent.com` 本身在国内 20s 后 `ConnectionReset`，所以走 gh-proxy 直通。
 
-备用地址（jsDelivr 多个入口，任选其一）：
-- `https://fastly.jsdelivr.net/gh/yjj79819/proxy-sub@main/dist/config-cn.yaml`
-- `https://gcore.jsdelivr.net/gh/yjj79819/proxy-sub@main/dist/config-cn.yaml`
+实测三个国内可达入口（2026-10-27）：
+
+| 地址 | 延迟 | 新鲜度 |
+|---|---|---|
+| `gh-proxy.com` + raw | 1.0s | 最新 ✓ |
+| `ghfast.top` + raw | 4.7s | 最新 ✓ |
+| jsDelivr `@main` | 0.9s | 滞后 ≤12h |
+
+镜像都是社区服务，随时可能失效；失效就换成上表另一行，或直接切 jsDelivr。
+CI 最后一步会用 gh-proxy 回读一次，确认订阅真能取到、且含自建节点。
 
 分组：
 
@@ -175,6 +191,11 @@ CI 每次推完会调 `purge.jsdelivr.net` 主动刷缓存，否则 jsDelivr 可
     内嵌 DNS 必须 `ipv6: false`。
 13. **`mihomo -d <dir>` 才是加载配置的正确姿势**。用 `-f <任意文件名>` 起进程，
     `/proxies` 里可能拿到空的 proxies 列表，表现为"0 个节点"。
+14. **jsDelivr 的 `@main` 别名会给你 12 小时前的文件，且 purge 刷不掉**。见上文"FlClash 接入"。
+    订阅要每天变化的内容，别用 jsDelivr 分支别名，用直通 raw 的镜像。
+15. **`ensure_mihomo()` 找内核要连 `bin/` 一起找**。本机把 `mihomo.exe` 放在 `bin/` 下时，
+    旧逻辑只在根目录找，找不到就去 GitHub 下载 → 国内直连超时（`WinError 10060`），
+    表现为"测速跑不起来"。已修：候选路径含 `bin/mihomo(.exe)`。
 
 ## 安全警告
 
