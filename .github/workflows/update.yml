@@ -10,6 +10,7 @@ on:
     paths:                  # 只改脚本/源清单时自动重跑
       - "update.py"
       - "ci_refine.py"
+      - "counts.py"
       - "remote_refine.py"
       - "sources.txt"
       - "builtin.yaml"
@@ -48,17 +49,18 @@ jobs:
       # 代理层不在云上测：免费节点普遍封云厂商 IP，云上恒为 0（本机 6/7 vs 云上 0/7）。
       - name: 中国视角 TCP 预筛（腾讯云广州）
         env:
-          SSH_KEY_PATH: ${{ github.workspace }}/.ssh_key
+          SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
         run: |
-          if [ -z "$SSH_HOST" ]; then
-            echo "::warning::未配置 SSH_HOST secret，跳过中国视角精筛"
+          if [ -z "$SSH_HOST" ] || [ -z "$SSH_KEY" ]; then
+            echo "::warning::未配置 SSH_HOST / SSH_KEY secret，跳过中国视角精筛"
             exit 0
           fi
-          printf '%s' "${{ secrets.SSH_KEY }}" > "$SSH_KEY_PATH"
-          chmod 600 "$SSH_KEY_PATH"
-          python ci_refine.py
+          KEY="$RUNNER_TEMP/ssh_key"
+          printf '%s\n' "$SSH_KEY" > "$KEY"
+          chmod 600 "$KEY"
+          SSH_KEY_PATH="$KEY" SSH_USER="${SSH_USER:-root}" python ci_refine.py
 
       - name: 提交变更
         run: |
@@ -75,14 +77,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "内容无变化，不产生空提交"
           else
-            N=$(python -c "
-import json,os
-a='-'; b='-'
-if os.path.exists('dist/stats.json'):
-    a=json.load(open('dist/stats.json'))['counts']['kept']
-if os.path.exists('dist/stats-cn.json'):
-    b=json.load(open('dist/stats-cn.json'))['counts']['kept']
-print(f'US {a} / CN {b}')")
-            git commit -m "chore: 更新订阅 $(date -u +%Y-%m-%dT%H:%MZ) | 可用 ${N}"
+            N=$(python counts.py)
+            git commit -m "chore: 更新订阅 $(date -u +%Y-%m-%dT%H:%MZ) | ${N}"
             git push
           fi
