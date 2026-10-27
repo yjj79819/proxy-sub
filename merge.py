@@ -265,9 +265,14 @@ def apply_cn(air, delays):
               f"（TCP 类 {tcp} + UDP 类 {len(keep)-tcp}，剔除 {len(dead)} 个测不通的）")
         return keep
     U.log(f"  可用率偏低({ratio:.0%})，保守处理：全部保留、只排序不剔除")
-    ranked = sorted(air, key=lambda x: (PROTO_RANK.get(x.get("type"), 0),
-                                        x.get("_d") is None, x.get("_d") or 99999))
+    # 关键：**活的一定排在死的之前**。只按协议排会把"死掉的 TCP 节点"排到
+    # "活着的 UDP 节点"前面，fallback 每次都要先撞一堆死的。
+    ranked = sorted(air, key=lambda x: (x.get("_d") is None,
+                                        PROTO_RANK.get(x.get("type"), 0),
+                                        x.get("_d") or 99999))
     for p in ranked:
+        if p.get("_d"):
+            p["name"] = f"{p['name']} {p['_d']}ms"
         p.pop("_d", None)
     return ranked
 
@@ -297,7 +302,17 @@ def main():
         # 不直接退出：退化成"自建+公共"的合并版，仍然可用
     elif "--no-cn" not in sys.argv:
         U.log("机场节点交腾讯云做中国视角代理层测速…")
-        air = apply_cn(air, cn_measure(air))
+        d = cn_measure(air)
+        # 云侧网络也会抖（实测同一批 53 个节点，不同轮次 13 / 27 / 33 可用）。
+        # 可用率明显偏低时重测一次，取更好的那轮，避免一次抖动把配置排序搞乱。
+        if air and len(d) / max(1, len(air)) < 0.35:
+            U.log("  可用率偏低，15s 后重测一次…")
+            time.sleep(15)
+            d2 = cn_measure(air)
+            if len(d2) > len(d):
+                U.log(f"  重测更好: {len(d)} -> {len(d2)}")
+                d = d2
+        air = apply_cn(air, d)
     pub = load_cn_public()
     if not air and not pub:
         print("SKIP")

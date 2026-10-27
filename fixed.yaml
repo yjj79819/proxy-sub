@@ -1,0 +1,291 @@
+# ============================================================================
+# subhub 合并订阅（静态版）
+# ----------------------------------------------------------------------------
+# 思路：不抓取、不重生成。用 mihomo 原生的 proxy-providers，让客户端自己去拉
+#       这 6 个源，它们本来就每天自动更新。这份文件写完就不用再改。
+#
+# 分流：国内 IP / .cn 域名 直连，其余走代理。
+# 用法：FlClash → 配置 → 添加 → 从 URL 导入 → 粘贴本文件地址。
+# ============================================================================
+
+mixed-port: 7890
+allow-lan: false
+bind-address: "*"
+mode: rule
+log-level: warning
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - "+.msftconnecttest.com"
+    - "+.msftncsi.com"
+    - "localhost.ptlogin2.qq.com"
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  fallback:
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+
+# ---------------------------------------------------------------------------
+# 6 个源。url 一律加 gh-proxy 前缀：raw.githubusercontent.com 在国内会
+# ConnectionReset（实测 anaer / free18 / ripaojiedian 直连直接断，mahdibland
+# 要 43s），走 gh-proxy 后 1.3~5.0s 全部正常。
+#
+# exclude-filter 用 RE2 语法（Go 不支持 (?!) 负向断言，所以写在 exclude 里）：
+# 这些公开源普遍混着「剩余流量：xxGB」「官网：xxx」「过期时间」这类广告假节点，
+# 名字对但连不上，先剔掉能省掉大量无用的健康检查。
+# ---------------------------------------------------------------------------
+proxy-providers:
+  anaer:
+    type: http
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/anaer/Sub/main/clash.yaml"
+    path: ./providers/anaer.yaml
+    interval: 21600          # 6 小时
+    exclude-filter: "(?i)(剩余|流量|过期|到期|官网|官方|订阅|重置|群组|频道|telegram|t\\.me|expire|traffic|www\\.)"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 600
+      lazy: true
+
+  free18:
+    type: http
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/free18/v2ray/main/c.yaml"
+    path: ./providers/free18.yaml
+    interval: 21600
+    exclude-filter: "(?i)(剩余|流量|过期|到期|官网|官方|订阅|重置|群组|频道|telegram|t\\.me|expire|traffic|www\\.)"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 600
+      lazy: true
+
+  mahdibland:
+    type: http
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity.yml"
+    path: ./providers/mahdibland.yaml
+    interval: 21600
+    exclude-filter: "(?i)(剩余|流量|过期|到期|官网|官方|订阅|重置|群组|频道|telegram|t\\.me|expire|traffic|www\\.)"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 600
+      lazy: true
+
+  peasoft:
+    type: http
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/peasoft/NoMoreWalls/master/list.yml"
+    path: ./providers/peasoft.yaml
+    interval: 21600
+    exclude-filter: "(?i)(剩余|流量|过期|到期|官网|官方|订阅|重置|群组|频道|telegram|t\\.me|expire|traffic|www\\.)"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 600
+      lazy: true
+
+  ripaojiedian:
+    type: http
+    url: "https://gh-proxy.com/https://raw.githubusercontent.com/ripaojiedian/freenode/main/clash"
+    path: ./providers/ripaojiedian.yaml
+    interval: 21600
+    exclude-filter: "(?i)(剩余|流量|过期|到期|官网|官方|订阅|重置|群组|频道|telegram|t\\.me|expire|traffic|www\\.)"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 600
+      lazy: true
+
+  ermaozi:
+    type: http
+    url: "https://raw.githubusercontent.com/ermaozi01/free_clash_vpn/main/subscribe/clash.yml"
+    path: ./providers/ermaozi.yaml
+    interval: 21600
+    exclude-filter: "(?i)(剩余|流量|过期|到期|官网|官方|订阅|重置|群组|频道|telegram|t\\.me|expire|traffic|www\\.)"
+    health-check:
+      enable: true
+      url: http://cp.cloudflare.com/generate_204
+      interval: 600
+      lazy: true
+
+# ---------------------------------------------------------------------------
+proxies:
+  - name: "🏠 自建 fast3"
+    type: vless
+    server: 104.17.141.217
+    port: 443
+    uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+    udp: true
+    tls: true
+    servername: cf.legaga.top
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: cf.legaga.top
+
+  - name: "🏠 自建 fast5"
+    type: vless
+    server: 104.16.14.78
+    port: 443
+    uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+    udp: true
+    tls: true
+    servername: cf.legaga.top
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: cf.legaga.top
+
+  - name: "🏠 自建 fast2"
+    type: vless
+    server: 162.159.236.194
+    port: 443
+    uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+    udp: true
+    tls: true
+    servername: cf.legaga.top
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: cf.legaga.top
+
+  - name: "🏠 自建 fast4"
+    type: vless
+    server: 172.64.67.117
+    port: 443
+    uuid: 18d53b43-93b0-4832-9639-74bf7cd8d015
+    udp: true
+    tls: true
+    servername: cf.legaga.top
+    client-fingerprint: chrome
+    network: ws
+    ws-opts:
+      path: "/?ed=2560"
+      headers:
+        Host: cf.legaga.top
+
+# ---------------------------------------------------------------------------
+# 分组：
+#   每个源一个 url-test 子组（某个源全挂时可以在手动选择里直接跳过它）
+#   境外代理 = fallback，自建优先 → 各源子组依次兜底
+#   fallback 里绝不放 DIRECT：境外站直连本来就不通，放 DIRECT 会把「节点挂了」
+#   伪装成「正常直连」，排查时极具误导性（2026-10-27 踩过）
+# ---------------------------------------------------------------------------
+proxy-groups:
+  # 日常路径。注意这里**故意不含 anaer**：
+  # anaer 有 2487 个节点，占全部节点的 83%，实测冷启动测速几分钟才推进 4%，
+  # 而其余 5 源合计 500 个节点在同一时间已 100% 测完。放进来会把整条
+  # fallback 链的健康检查一起拖慢，等于为了 83% 的死重牺牲日常可用性。
+  # anaer 没删，降级挂在「🎯 手动选择」末尾，想翻它就去点，不点就不测（lazy）。
+  - name: "🚀 境外代理"
+    type: fallback
+    url: http://cp.cloudflare.com/generate_204
+    interval: 180
+    timeout: 3000
+    proxies:
+      - "🏠 自建 fast3"
+      - "🏠 自建 fast5"
+      - "🏠 自建 fast2"
+      - "🏠 自建 fast4"
+      - "♻️ peasoft"
+      - "♻️ mahdibland"
+      - "♻️ free18"
+      - "♻️ ripaojiedian"
+      - "♻️ ermaozi"
+
+  # anaer 单独拉长到 1 小时：它不走日常路径，只在手动点开时才有意义
+  - name: "♻️ anaer"
+    type: url-test
+    use: [anaer]
+    url: http://cp.cloudflare.com/generate_204
+    interval: 3600
+    tolerance: 80
+    lazy: true
+  - name: "♻️ peasoft"
+    type: url-test
+    use: [peasoft]
+    url: http://cp.cloudflare.com/generate_204
+    interval: 600
+    tolerance: 80
+    lazy: true
+  - name: "♻️ mahdibland"
+    type: url-test
+    use: [mahdibland]
+    url: http://cp.cloudflare.com/generate_204
+    interval: 600
+    tolerance: 80
+    lazy: true
+  - name: "♻️ ripaojiedian"
+    type: url-test
+    use: [ripaojiedian]
+    url: http://cp.cloudflare.com/generate_204
+    interval: 600
+    tolerance: 80
+    lazy: true
+  - name: "♻️ free18"
+    type: url-test
+    use: [free18]
+    url: http://cp.cloudflare.com/generate_204
+    interval: 600
+    tolerance: 80
+    lazy: true
+  - name: "♻️ ermaozi"
+    type: url-test
+    use: [ermaozi]
+    url: http://cp.cloudflare.com/generate_204
+    interval: 600
+    tolerance: 80
+    lazy: true
+
+  - name: "🎯 手动选择"
+    type: select
+    proxies:
+      - "🚀 境外代理"
+      - "🏠 自建 fast3"
+      - "🏠 自建 fast5"
+      - "🏠 自建 fast2"
+      - "🏠 自建 fast4"
+      - "♻️ peasoft"
+      - "♻️ mahdibland"
+      - "♻️ free18"
+      - "♻️ ripaojiedian"
+      - "♻️ ermaozi"
+      - "♻️ anaer"
+      - DIRECT
+
+# ---------------------------------------------------------------------------
+# 分流：国内直连、其余代理。
+# 没用 GEOSITE 分类名 —— 本机 GeoSite.dat 的分类名大小写敏感，小写会静默不匹配
+# （2026-10-27 踩过），只用 GEOIP + 域名后缀最稳。
+# ---------------------------------------------------------------------------
+rules:
+  - GEOIP,lan,DIRECT,no-resolve
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-KEYWORD,-cn,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,🚀 境外代理
