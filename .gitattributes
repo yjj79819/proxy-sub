@@ -1,0 +1,8 @@
+# Windows 上 Git 默认会把 LF 转成 CRLF。GitHub Actions 的 run: 段是 bash，
+# 带 \r 会报 "$'\r': command not found"。脚本类文件必须锁定 LF。
+* text=auto eol=lf
+*.py    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.txt   text eol=lf
+*.md    text eol=lf
