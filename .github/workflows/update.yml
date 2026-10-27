@@ -82,6 +82,26 @@ jobs:
             git push
           fi
 
+      # 合并版：付费机场 + 自建 + 中国视角筛过的公共节点
+      # 里面有付费节点凭据，**不提交到仓库**，只 SCP 到腾讯云由 serve.py 私有提供。
+      # 机场订阅地址走 secret，不进公开仓库（公开=节点被白嫖+机场封号）。
+      - name: 生成并上传合并配置（付费机场+自建+免费）
+        env:
+          AIRPORT_SUBS: ${{ secrets.AIRPORT_SUBS }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          if [ -z "$AIRPORT_SUBS" ]; then
+            echo "::warning::未配置 AIRPORT_SUBS secret，跳过合并版"
+            exit 0
+          fi
+          KEY="$RUNNER_TEMP/ssh_key_merge"
+          printf '%s\n' "$SSH_KEY" > "$KEY"
+          chmod 600 "$KEY"
+          SSH_KEY_PATH="$KEY" SSH_HOST="$SSH_HOST" SSH_USER="${SSH_USER:-root}" \
+            python merge.py --push
+
       # jsDelivr 的 @main 分支别名有 ~12h 缓存，purge 也刷不掉（实测），所以正式订阅地址用
       # gh-proxy 直通 raw。这一步从中国大陆入口回读一次，确认订阅真的能取到、且是刚生成的版本。
       - name: 回读订阅校验（中国镜像）

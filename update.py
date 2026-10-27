@@ -467,15 +467,26 @@ def load_prev():
     return out
 
 
-def build_config(public, stats):
+def build_config(public, stats, airports=None, airport_label="✈️ 机场"):
+    """生成 mihomo 配置。
+
+    airports: 付费机场节点（已由调用方起好名字），**不参与筛选、全部保留**——
+              付费节点不该被"延迟阈值"砍掉，死掉的交给客户端 url-test 跳过。
+    airport_label: 机场分组名，同时也是配置里区分"付费/自建/免费"三档的标识。
+    """
     builtin, _ = load_builtin()
     proxies = []
-    bin_names, pub_names = [], []
+    bin_names, pub_names, air_names = [], [], []
 
     for p in builtin:
         q = dict(p)
         proxies.append(q)
         bin_names.append(q["name"])
+
+    for p in (airports or []):
+        q = {k: v for k, v in p.items() if k not in ("_src", "_name")}
+        proxies.append(q)
+        air_names.append(q["name"])
 
     for p in public:
         d = stats["delay"].get(p["_name"])
@@ -486,22 +497,28 @@ def build_config(public, stats):
         proxies.append(q)
         pub_names.append(nm)
 
-    allp = bin_names + pub_names
+    allp = air_names + bin_names + pub_names
 
-    # 分组：自建优先，公共兜底
+    # 分组：机场（付费，最稳）> 自建 > 公共免费兜底
     # 注意：fallback 组里**不放 DIRECT**。境外站直连本来就不通，放 DIRECT 只会把
     # "节点挂了" 变成 "静默直连、看起来正常但实际被墙"，排查时极具误导性
     # （2026-10-27 实测踩过：fallback 尾端挂 DIRECT，出口显示本地 IP，误判成节点可用）。
     groups = []
+    if air_names:
+        groups.append({"name": airport_label, "type": "url-test",
+                       "url": TEST_URL, "interval": 300, "tolerance": 50,
+                       "lazy": True, "proxies": air_names})
     if pub_names:
         groups.append({"name": "♻️ 公共自动", "type": "url-test",
                        "url": TEST_URL, "interval": 600, "tolerance": 80,
                        "lazy": True, "proxies": pub_names})
+    head = ([airport_label] if air_names else []) + \
+           (["♻️ 公共自动"] if pub_names else [])
     groups.append({"name": "🎯 手动选择", "type": "select",
-                   "proxies": (["♻️ 公共自动"] if pub_names else []) + allp + ["DIRECT"]})
+                   "proxies": head + allp + ["DIRECT"]})
     groups.append({"name": "🚀 境外代理", "type": "fallback",
                    "url": TEST_URL, "interval": 300,
-                   "proxies": allp + (["♻️ 公共自动"] if pub_names else [])})
+                   "proxies": head + bin_names + pub_names})
 
     cfg = {
         "mixed-port": 7890,
