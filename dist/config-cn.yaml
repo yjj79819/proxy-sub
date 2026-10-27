@@ -1,6 +1,6 @@
 # 由 ci_refine.py 生成（中国视角 TCP 预筛），请勿手改
-# 更新时间: 2026-10-27 12:55:43 +0000
-# 候选池 100 -> 中国 TCP 可连 9 -> 写入 9
+# 更新时间: 2026-10-27 13:01:31 +0000
+# 候选池 100 -> 中国 TCP 可连 11 -> 写入 11
 # 说明：延迟未标注，因代理层测速由客户端 url-test 完成
 #       （云服务器 IP 被免费节点封禁，云上测代理层恒为 0）
 mixed-port: 7890
@@ -110,20 +110,6 @@ proxies:
   name: PUB-001
 - type: vmess
   network: ws
-  server: cf.090227.xyz
-  port: 443
-  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
-  skip-cert-verify: true
-  tls: true
-  alterId: 0
-  cipher: auto
-  ws-opts:
-    headers:
-      Host: vmess.lbw666.dpdns.org
-    path: /ws?ed=2048
-  name: PUB-002
-- type: vmess
-  network: ws
   server: 172.66.0.1
   port: 443
   uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
@@ -135,51 +121,69 @@ proxies:
     headers:
       Host: vmess.lbw666.dpdns.org
     path: /ws
+  name: PUB-002
+- server: 202.50.253.54
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   name: PUB-003
-- server: 202.50.253.45
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-004
-- server: 202.50.253.27
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-005
-- server: 202.50.253.72
-  port: 19999
-  type: ss
-  cipher: aes-256-gcm
-  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-006
 - server: 202.50.253.99
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
-  name: PUB-007
+  name: PUB-004
+- server: 202.50.253.72
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-005
 - server: 202.50.253.36
   port: 19999
   type: ss
   cipher: aes-256-gcm
   password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-006
+- server: 202.50.253.63
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-007
+- server: 202.50.253.90
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   name: PUB-008
-- type: vless
-  server: nl-central.v8x2b.lol
-  port: 443
-  uuid: 846cedee-2a52-0002-a0b9-11850ead6a8b
-  flow: xtls-rprx-vision
-  udp: true
-  tls: true
-  servername: nl-central.v8x2b.lol
-  sni: nl-central.v8x2b.lol
-  skip-cert-verify: false
-  client-fingerprint: chrome
-  reality-opts:
-    public-key: q3UXFUE5yYxNE4ugLUnYdpc9WRtR-sjsDTrKsiqzDHE
+- server: 202.50.253.18
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
   name: PUB-009
+- server: 202.50.253.27
+  port: 19999
+  type: ss
+  cipher: aes-256-gcm
+  password: ZRpgaBeGxtENIXgvhpkZBKz9GnWRS2dYcx9O+a2iwN4=
+  name: PUB-010
+- type: vmess
+  network: ws
+  server: cf.090227.xyz
+  port: 443
+  uuid: 0cf6d970-3f1d-4aae-a989-92a8f76ae3db
+  skip-cert-verify: true
+  tls: true
+  alterId: 0
+  cipher: auto
+  ws-opts:
+    headers:
+      Host: vmess.lbw666.dpdns.org
+    path: /ws?ed=2048
+  name: PUB-011
 proxy-groups:
 - name: ♻️ 公共自动
   type: url-test
@@ -197,6 +201,8 @@ proxy-groups:
   - PUB-007
   - PUB-008
   - PUB-009
+  - PUB-010
+  - PUB-011
 - name: 🎯 手动选择
   type: select
   proxies:
@@ -214,6 +220,8 @@ proxy-groups:
   - PUB-007
   - PUB-008
   - PUB-009
+  - PUB-010
+  - PUB-011
   - DIRECT
 - name: 🚀 境外代理
   type: fallback
@@ -233,6 +241,8 @@ proxy-groups:
   - PUB-007
   - PUB-008
   - PUB-009
+  - PUB-010
+  - PUB-011
   - ♻️ 公共自动
 rules:
 - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
